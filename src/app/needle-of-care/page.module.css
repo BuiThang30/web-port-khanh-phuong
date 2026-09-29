@@ -1,0 +1,1003 @@
+.page {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: #090909;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.content {
+  width: 100%;
+  padding: 0 5%;
+}
+
+.section {
+  padding: calc(var(--nav-height, 64px) + 48px) 0 0;
+}
+
+.fillImg {
+  object-fit: cover;
+}
+
+/* ================= TEXT ================= */
+.text {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: left;
+}
+.text p + p {
+  margin-top: 18px;
+}
+
+/* ================= 2 HÀNG: CHỮ + ẢNH ================= */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6%;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.textCol,
+.imgCol {
+  min-width: 0;
+}
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ================= KHUNG ẢNH ================= */
+.frame {
+  position: relative;
+  width: 100%;
+}
+.frameLime {
+  border: 2px solid #ccf656;
+}
+.framePink {
+  border: 2px solid #f230aa;
+}
+.frameInner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #1a1a1a;
+}
+.frameFull {
+  height: 100%;
+}
+.frameFull .frameInner {
+  height: 100%;
+}
+
+.handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #ccf656;
+}
+.hTL { top: -7px; left: -7px; }
+.hTR { top: -7px; right: -7px; }
+.hBL { bottom: -7px; left: -7px; }
+.hBR { bottom: -7px; right: -7px; }
+
+/* ================= NHÃN (LABEL) MÀU KEM ================= */
+.labelBox {
+  position: relative;
+  display: inline-block;
+  background-color: #fff5d0;
+  border: 2px solid #f230aa;
+  padding: 8px 18px;
+  white-space: nowrap;
+}
+.labelText {
+  color: #154d3e;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+}
+.labelCorner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #f230aa;
+}
+.cTL { top: -6px; left: -6px; }
+.cTR { top: -6px; right: -6px; }
+.cBL { bottom: -6px; left: -6px; }
+.cBR { bottom: -6px; right: -6px; }
+
+/* ================= MY FAVORITE LIFE SPECIMEN ================= */
+.specimenSection {
+  padding: 100px 0 0;
+}
+.specimenBoard {
+  position: relative;
+  width: 88%;
+  max-width: 900px;
+  margin: 0 auto;
+  aspect-ratio: 750 / 545;
+}
+.specimenLines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.specimenLines line {
+  stroke: #f230aa;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+.specItem {
+  position: absolute;
+  width: 26%;
+  height: 42%;
+}
+.specTL { top: 0; left: 0; }
+.specTR { top: 1%; right: 0; }
+.specBL { bottom: 0; left: 0; }
+.specBR { bottom: 0; right: 0; }
+
+.specCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.captionLabel {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  z-index: 2;
+}
+
+/* ================= THANH TIÊU ĐỀ SECTION ================= */
+.sectionBar {
+  background-color: #ccf656;
+  padding: 16px 20px;
+  margin: 140px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Thanh con: cùng nền với .sectionBar nhưng ngắn hơn (Heal Heath, ASEAN...) */
+.sectionBarSub {
+  background-color: #ccf656;
+  padding: 16px 20px;
+  margin: 140px auto 0;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sectionTitle {
+  color: #f230aa;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ================= CHUNG ================= */
+.imgBox {
+  position: relative;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: transparent; 
+}
+.bodyText {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 15px; 
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: justify;
+}
+.bodyTextCentered {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: justify;
+  text-align-last: center;
+}
+.bodyTextCentered p + p { margin-top: 18px; }
+
+/* ================= RESEARCH CARD ================= */
+.researchCardAdvanced {
+  position: relative;
+  width: 100%;
+  margin-top: 100px;
+  margin-bottom: 80px;
+}
+.researchTopWrapper {
+  position: relative;
+  margin-bottom: 80px;
+}
+.grayBgFullWidth {
+  position: absolute;
+  top: 0;
+  bottom: 0; 
+  left: -50vw;
+  right: -50vw;
+  background-color: #242424; 
+  z-index: 0;
+}
+.researchBottomWrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.researchSplitAdvanced {
+  display: flex;
+  gap: 60px;
+  align-items: center; 
+  position: relative;
+  z-index: 1;
+  padding: 60px 0; 
+}
+
+.researchImgColSmall {
+  flex: 0 0 35%; 
+  display: flex;
+  flex-direction: column;
+}
+
+.paperImgBoxSmall {
+  position: relative;
+  width: 100%;
+  height: 400px; 
+  margin-top: -60px; 
+  margin-bottom: -60px; 
+  background-color: #fff; 
+  box-shadow: 5px 5px 25px rgba(0,0,0,0.6); 
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 15px; 
+}
+.paperImgBoxSmall img {
+  object-fit: contain !important; 
+  transform: scale(0.9); 
+  transform-origin: center;
+}
+
+.researchTextCol {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.researchTitle {
+  color: #ccf656;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 30px; 
+  font-weight: 700; 
+  margin-bottom: 16px;
+}
+.researchList {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 22.5px; 
+  font-weight: 500;
+  line-height: 1.8;
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+.researchList li {
+  margin-bottom: 8px;
+}
+.collectionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border: 2px solid #fff5d0;
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.collectionBtn:hover {
+  background-color: #fff5d0;
+  color: #111111;
+}
+
+/* ================= MARQUEE (SCROLL VÔ HẠN CỦA ACHIEVEMENT) ================= */
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  padding: 20px 0;
+}
+.marqueeTrack {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: scrollMarquee 35s linear infinite; 
+}
+.marqueeTrack:hover { animation-play-state: paused; }
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } 
+}
+.certCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.certImgBox {
+  height: 350px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.certImg {
+  height: 100%;
+  width: auto; 
+  object-fit: contain;
+}
+.certTitle {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 16px;
+  font-weight: 500;
+  white-space: pre-wrap; 
+  text-align: center;
+  max-width: 320px; 
+}
+
+/* ================= MARQUEE CỦA RESEARCH 2 ================= */
+.marqueeTrackResearch {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: scrollMarquee 40s linear infinite; 
+}
+.marqueeTrackResearch:hover { animation-play-state: paused; }
+
+.researchSlideCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 360px;
+}
+.researchSlideImgBox {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  border: 2px solid #ccf656; 
+  background-color: transparent; 
+  overflow: hidden;
+}
+.researchSlideTitle {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 14.5px;
+  font-weight: 700;
+  white-space: pre-wrap; 
+  text-align: left;
+  line-height: 1.5;
+}
+
+/* ================= COLLAGE HEALING GARDEN ================= */
+.collageContainer {
+  position: relative;
+  width: 100%;
+  height: 1200px; 
+  margin-bottom: 60px;
+}
+.collageImgWrapper {
+  position: absolute;
+}
+.collageTextRow {
+  position: absolute;
+  z-index: 4;
+}
+
+/* ================= YOUTUBE VIDEO SECTION BỌC TRONG KHUNG XÁM ================= */
+.videoBoxContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 120px auto 0;
+  background-color: #d1d5db; 
+}
+.videoTitleBox {
+  position: absolute;
+  top: 45px; 
+  left: 20px; 
+  z-index: 10; 
+}
+.videoPlayerBox {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-color: #000;
+  border-radius: 4px; 
+  overflow: hidden;
+  margin: 0 auto;
+}
+.videoPlayerBox iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block; 
+}
+
+.centerBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.captionText {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 16px;
+}
+.captionTextLeft {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 13.5px;
+  font-weight: 700;
+  text-align: left;
+  line-height: 1.4;
+}
+
+/* ================= CUSTOM VIDEO PLAYER ================= */
+.customVideoContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-color: #000;
+}
+.customVideoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.playIconOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.playIconSvg {
+  width: 90px;
+  height: 90px;
+  fill: #111;
+  stroke: #111;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  transition: transform 0.2s ease;
+}
+.customVideoContainer:hover .playIconSvg {
+  transform: scale(1.1);
+}
+
+/* ================= LƯỚI ẢNH DENGUE PROJECT ================= */
+.dengueGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 20px;
+  width: 100%;
+  margin-top: 40px;
+}
+.dengueColLeft {
+  display: flex;
+  flex-direction: column;
+}
+.dengueColCenter {
+  display: flex;
+  flex-direction: column;
+}
+.dengueColRight {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= COMMUNITY MIGRANT HEALTH ================= */
+.communityTag {
+  background-color: #ccf656;
+  color: #2b7a69;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 6px 32px;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.instagramLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ccf656;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 14px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.instagramLink:hover {
+  opacity: 0.8;
+}
+
+.twoCol {
+  display: flex;
+  gap: 48px;
+}
+.col { 
+  flex: 1; 
+  min-width: 0; 
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= HEAL HEALTH 2 ẢNH TỶ LỆ 1 - 3 ================= */
+.healGrid {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+}
+
+.healColLeft {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.healColRight {
+  flex: 3;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.healImgWrapper {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+/* ================= SERIES (HOVER HIỆN NỘI DUNG) ================= */
+.subSectionTitle {
+  color: #ccf656;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.seriesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.seriesCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #161616;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #2a2a2a;
+}
+
+.seriesImgContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1.25;
+  overflow: hidden;
+}
+
+.seriesHoverContent {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(15, 15, 15, 0.95);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.seriesCard:hover .seriesHoverContent {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.seriesCardTitle {
+  color: #ccf656;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.seriesCardDesc {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* ================= HOMEPAGE GRID 2x2 ================= */
+.homepageGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.homepageImgBox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+}
+
+/* ================= ASEAN MENTAL HEALTH PROJECT ================= */
+.aseanGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.aseanImgBox {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+}
+
+.aseanCertBox {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 4/3;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ================= INTERNSHIP ================= */
+.barDot {
+  color: #154d3e;
+  margin: 0 18px;
+}
+.barLink {
+  color: #2b7a69;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: opacity 0.2s ease;
+}
+.barLink:hover { opacity: 0.7; }
+
+.internHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 48px;
+  text-align: center;
+}
+.internCompany {
+  margin: 0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.linkLime,
+.linkCream {
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.linkLime {
+  color: #ccf656;
+  text-decoration-thickness: 3px;
+}
+.linkCream {
+  color: #fff5d0;
+  font-size: 24px;
+  text-decoration-thickness: 2px;
+}
+.linkLime:hover,
+.linkCream:hover {
+  opacity: 0.75;
+  transform: translateY(-1px);
+}
+
+.internGridFour {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.3fr;
+  gap: 14px;
+  align-items: start;
+  width: 100%;
+}
+.internGridThree {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  width: 100%;
+}
+.internFigure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.internPortrait,
+.internLandscape {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+}
+.internPortrait { aspect-ratio: 200 / 270; }
+.internLandscape { aspect-ratio: 4 / 3; }
+.bodyText p + p { margin-top: 18px; }
+.internCaption {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.4;
+}
+
+
+/* ================= COMMUNITY (class riêng) ================= */
+.communitySection {
+  padding: 40px 0 120px;
+}
+.communityContent {
+  width: 100%;
+  padding: 0 5%;
+}
+.communityHero {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.communityTwoCol {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ================= ASEAN MENTAL HEALTH (class riêng) ================= */
+.aseanSection {
+  padding: 60px 0 120px;
+}
+.aseanContent {
+  width: 100%;
+  padding: 0 5%;
+}
+.aseanText {
+  max-width: 900px;
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: justify;
+  text-align-last: center;
+}
+
+/* ================= INTERNSHIP: video + Stem Cell ================= */
+.internVideoCaption {
+  max-width: 830px;
+  margin: 20px 0 0;
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+.internRole {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 24px;
+  font-weight: 700;
+}
+.internGridStem {
+  display: grid;
+  grid-template-columns: 213fr 372fr 372fr;
+  gap: 32px;
+  align-items: start;
+  width: 100%;
+}
+.internStemPortrait,
+.internStemLandscape {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #1a1a1a;
+}
+.internStemPortrait { aspect-ratio: 213 / 278; }
+.internStemLandscape { aspect-ratio: 372 / 280; }
+.linkCreamSmall {
+  color: #fff5d0;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: opacity 0.2s ease;
+}
+.linkCreamSmall:hover { opacity: 0.75; }
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .sectionBarSub { width: 80%; }
+  .row {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .rowImgFirst .textCol { order: -1; }
+  .collageContainer { height: 1400px; }
+  .researchSplitAdvanced { flex-direction: column; }
+  .paperImgBoxSmall { margin-top: -40px; margin-bottom: 20px; height: auto; aspect-ratio: 1/1.4; }
+  .researchImgColSmall { flex: 1; width: 100%; }
+  
+  .dengueGrid { grid-template-columns: 1fr; }
+  .twoCol { flex-direction: column; }
+  
+  .healGrid {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .healColLeft, .healColRight {
+    flex: 1;
+    width: 100%;
+  }
+  .healImgWrapper {
+    height: 400px;
+  }
+
+  .seriesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .aseanGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .internGridFour { grid-template-columns: repeat(2, 1fr); }
+  .internGridThree { grid-template-columns: 1fr; }
+  .internGridStem { grid-template-columns: 1fr; }
+  .communityTwoCol { flex-direction: column; }
+}
+
+@media (max-width: 768px) {
+  .content { padding: 0 6%; }
+  .specimenSection { padding-top: 70px; }
+
+  .specimenBoard {
+    width: 100%;
+    aspect-ratio: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .specimenLines { display: none; }
+  .specItem {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 193 / 228;
+  }
+  .specTL, .specTR, .specBL, .specBR {
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+  }
+  .specCenter {
+    position: static;
+    transform: none;
+    grid-column: 1 / -1;
+    justify-self: center;
+    order: -1;
+    margin-bottom: 8px;
+  }
+
+  .sectionBar { margin-top: 100px; }
+  .sectionBarSub { margin-top: 100px; width: 88%; }
+  .sectionTitle { font-size: 26px; }
+  .researchTitle { font-size: 24px; }
+  .researchList { font-size: 18px; }
+  
+  .researchSlideCard { width: 280px; } 
+  .researchSlideImgBox { height: 200px; }
+  
+  .collageContainer { height: auto; display: flex; flex-direction: column; gap: 40px; margin-bottom: 60px; }
+  .collageImgWrapper, .collageTextRow { position: static !important; width: 100% !important; margin: 0 auto; }
+  
+  .videoBoxContainer {
+    padding: 50px 15px 15px; 
+  }
+  .videoTitleBox { 
+    top: 35px;
+    left: 5px; 
+  }
+  .healImgWrapper { height: 300px; }
+
+  .seriesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .homepageGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .communityContent,
+  .aseanContent { padding: 0 6%; }
+  .internGridFour { grid-template-columns: 1fr; }
+  .internRole { font-size: 18px; }
+  .internVideoCaption { font-size: 15px; }
+  .internCompany { font-size: 20px; }
+  .linkCream { font-size: 18px; }
+  .barDot { margin: 0 8px; }
+}

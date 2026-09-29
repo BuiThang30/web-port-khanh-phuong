@@ -1,0 +1,781 @@
+.page {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: #090909; 
+  overflow: hidden;
+  padding-bottom: 80px;
+}
+
+.content {
+  width: 100%;
+  padding: 0 8%;
+}
+
+/* ================= CHUNG ================= */
+.imgBox {
+  position: relative;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+}
+.fillImg {
+  object-fit: cover;
+}
+.bodyText {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 15px; 
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: justify;
+}
+.bodyTextCentered {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: justify;
+  text-align-last: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bodyTextCentered p + p { margin-top: 18px; }
+
+/* ================= HERO INTRO TEXT ================= */
+.heroIntroText {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: justify;
+  text-align-last: center;
+  max-width: 900px;
+  margin: 140px auto 100px; 
+}
+
+/* ================= 2 ẢNH SỔ TĨNH ================= */
+.bookImagesRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 20px;
+  gap: 20px;
+}
+.bookPage {
+  position: relative;
+  flex: 1;
+  aspect-ratio: 4 / 3;
+  background-color: transparent;
+}
+.captionText {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 16px;
+}
+
+/* ================= PINK HERO TEXT ================= */
+.heroPinkLeft {
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 37.5px; 
+  color: #F230AA;
+  font-weight: 700;
+  line-height: 1.3;
+  max-width: 850px;
+  margin-top: 150px; 
+  margin-bottom: 150px; 
+  text-align: left;
+}
+
+.heroPinkRightWrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 120px;
+}
+
+.heroPinkRightContent {
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heroPinkText {
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 37.5px; 
+  color: #F230AA;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.collectionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border: 2px solid #fff5d0;
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.collectionBtn:hover {
+  background-color: #fff5d0;
+  color: #111111;
+}
+
+/* ================= EXTENDED INTRO BLOCKS ================= */
+.extendedIntroSection {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 120px;
+}
+
+.introBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.introSmallText {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 13.5px; 
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.twoColNotes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* ================= TITLES ================= */
+.neonTitle {
+  color: #ccf656;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.neonTitleLeft {
+  color: #ccf656;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 37.5px; 
+  font-weight: 700; 
+  line-height: 1.3;
+  margin-top: 180px; 
+  margin-bottom: 150px; 
+  text-align: left;
+  max-width: 900px;
+}
+.pinkTitle {
+  color: #f230aa;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.redSubtitle {
+  color: #ff0015;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 18px;
+  font-weight: 500;
+}
+.tealTitle {
+  color: #48937e;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.tealTitleHover {
+  color: #48937e;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.tealTitleHover:hover {
+  color: #ccf656;
+}
+.tealSubtitle {
+  color: #48937e;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ================= THANH TIÊU ĐỀ SECTION ================= */
+.sectionBar {
+  background-color: #ccf656;
+  padding: 16px 20px;
+  margin: 80px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+.sectionTitle {
+  color: #f230aa;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+}
+/* Dấu chấm ngăn cách trong thanh Internship */
+.sectionBarDot {
+  color: #090909;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+}
+/* Chữ có gạch chân trên thanh tiêu đề (link) */
+.sectionBarLink {
+  color: #48937e;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 30px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: color 0.2s ease;
+}
+.sectionBarLink:hover {
+  color: #f230aa;
+}
+
+.section { padding: 40px 0; }
+
+.centerBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+.centerBlock .imgBox {
+  margin-left: auto;
+  margin-right: auto;
+}
+.divider {
+  width: 100%;
+  height: 2px;
+  background-color: #2b2b2b;
+  margin: 60px 0;
+}
+.outlineBtn {
+  display: inline-block;
+  padding: 10px 24px;
+  border: 2px solid #fff5d0;
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.outlineBtn:hover {
+  background-color: #fff5d0;
+  color: #111111;
+}
+.underlineHover {
+  text-decoration: underline;
+  transition: color 0.2s;
+  color: #fff5d0;
+}
+.underlineHover:hover { color: #ccf656; }
+
+/* ================= COMPONENT: DECORATED BOX ================= */
+.decoratedBoxWrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+.decoratedBox {
+  background-color: #fff5d0;
+  border: 3px solid #f230aa;
+  padding: 16px 32px;
+}
+.decoratedTitle {
+  color: #154d3e;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+.cornerBox {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: #f230aa;
+}
+.cornerTL { top: -7px; left: -7px; }
+.cornerTR { top: -7px; right: -7px; }
+.cornerBL { bottom: -7px; left: -7px; }
+.cornerBR { bottom: -7px; right: -7px; }
+
+/* Biến thể gọn cho phần "My diary..." */
+.compact {
+  max-width: 92%;
+  margin-bottom: 28px;
+}
+.compact .decoratedBox {
+  padding: 14px 20px;
+}
+.compact .decoratedTitle {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: left;
+}
+
+/* ================= LAYOUTS ================= */
+.twoCol {
+  display: flex;
+  gap: 48px;
+}
+.col { flex: 1; min-width: 0; }
+
+.gridThree {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 30px 0;
+}
+.gridFive {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+/* GIANTS */
+.giantsRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 40px;
+}
+.giantCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.giantImgBox {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.giantName {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.giantRole { color: #fff5d0; font-size: 16px; }
+
+/* ZIGZAG ROW */
+.zigzagRow {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+.zigzagText { flex: 1; }
+.zigzagImg { flex: 1.2; }
+
+/* ================= MARQUEE (SCROLL VÔ HẠN) ================= */
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  padding: 20px 0;
+}
+.marqueeTrack {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: scrollMarquee 35s linear infinite; 
+}
+.marqueeTrack:hover { animation-play-state: paused; }
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } 
+}
+.certCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.certImgBox {
+  height: 350px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.certImg {
+  height: 100%;
+  width: auto; 
+  object-fit: contain;
+}
+.certTitle {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 16px;
+  font-weight: 500;
+  white-space: pre-wrap; 
+  text-align: center;
+  max-width: 320px; 
+}
+
+/* ================= NEW ADVANCED RESEARCH CARD ================= */
+.researchCardAdvanced {
+  position: relative;
+  width: 100%;
+  margin-top: 100px;
+  margin-bottom: 120px;
+}
+.researchTopWrapper {
+  position: relative;
+  margin-bottom: 160px;
+}
+.grayBgFullWidth {
+  position: absolute;
+  top: 0;
+  bottom: 0; 
+  left: -50vw;
+  right: -50vw;
+  background-color: #242424; 
+  z-index: 0;
+}
+.researchBottomWrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.researchSplit {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.researchSplitAdvanced {
+  display: flex;
+  gap: 60px;
+  align-items: center; 
+  position: relative;
+  z-index: 1;
+  padding: 60px 0; 
+}
+
+.researchImgCol {
+  flex: 0 0 38%;
+  display: flex;
+  flex-direction: column;
+}
+
+.researchImgColSmall {
+  flex: 0 0 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+.researchTextCol {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.paperImgBox {
+  position: relative;
+  width: 100%;
+  height: 560px; 
+  margin-top: -120px; 
+  margin-bottom: -120px; 
+  background-color: #fff;
+  box-shadow: 5px 5px 25px rgba(0,0,0,0.6); 
+  border-radius: 4px;
+}
+
+.paperImgBoxSmall {
+  position: relative;
+  width: 100%;
+  height: 480px; 
+  margin-top: -80px; 
+  margin-bottom: -80px; 
+  background-color: #fff;
+  box-shadow: 5px 5px 25px rgba(0,0,0,0.6); 
+  border-radius: 4px;
+}
+
+.researchTitle {
+  color: #ccf656;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 30px; 
+  font-weight: 700; 
+  margin-bottom: 16px;
+}
+
+.researchList {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 22.5px; 
+  font-weight: 500;
+  line-height: 1.8;
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+.researchList li {
+  margin-bottom: 8px;
+}
+
+.researchBodyText {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 13.5px; 
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+.captionTextLeft {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 13.5px;
+  font-weight: 700;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.videoCenterWrapper {
+  max-width: 800px;
+  margin: 60px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ================= CUSTOM VIDEO PLAYER ================= */
+.customVideoContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-color: #000;
+}
+.customVideoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.playIconOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.playIconSvg {
+  width: 90px;
+  height: 90px;
+  fill: #111;
+  stroke: #111;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  transition: transform 0.2s ease;
+}
+.customVideoContainer:hover .playIconSvg {
+  transform: scale(1.1);
+}
+.pauseOverlay {
+  opacity: 0;
+}
+.customVideoContainer:hover .pauseOverlay {
+  opacity: 1;
+}
+
+/* ================= INTERNSHIP: 2 HÀNG GIỚI THIỆU ================= */
+.internIntro {
+  max-width: 900px;
+  margin: 60px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.internRow {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+.internRowReverse {
+  flex-direction: row-reverse;
+}
+.internImgCol,
+.internTextCol {
+  flex: 1 1 50%;
+  min-width: 0;
+}
+.internText {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: left;
+}
+.internText p + p { margin-top: 16px; }
+
+/* ================= INTERNSHIP: ẢNH DEAN + JOKE ================= */
+.internDean {
+  max-width: 900px;
+  margin: 120px auto 0;
+}
+
+/* ================= INTERNSHIP: MY DIARY ================= */
+.diaryTitle {
+  color: #ccf656;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 36px;
+  font-weight: 700;
+  text-align: left;
+  margin: 140px 0 50px;
+}
+.diaryTimeline {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+.diaryRow {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.diaryRowReverse {
+  flex-direction: row-reverse;
+}
+.diaryCol {
+  flex: 1;
+  min-width: 0;
+}
+.diaryText {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.55;
+  text-align: left;
+}
+.diaryImgPair {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+/* Ảnh tài liệu (item 4): nền trắng, nằm giữa cột */
+.paperBox {
+  width: 70%;
+  margin: 0 auto;
+  aspect-ratio: 3 / 4;
+  background-color: #fff;
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.6);
+}
+/* Danh sách link có gạch chân + chấm đầu dòng */
+.diaryLinkList {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .twoCol, .zigzagRow, .researchSplit, .researchSplitAdvanced,
+  .internRow, .internRowReverse, .diaryRow, .diaryRowReverse { flex-direction: column; }
+  .internRow, .diaryRow { gap: 30px; }
+  .compact { max-width: 100%; }
+  .gridThree { grid-template-columns: repeat(1, 1fr); }
+  .gridFive { grid-template-columns: repeat(2, 1fr); }
+  .giantsRow { flex-wrap: wrap; justify-content: center; }
+  .giantCard { flex: 0 0 45%; }
+  .bookImagesRow { flex-direction: column; gap: 20px; }
+  .heroPinkLeft, .heroPinkRightContent { text-align: center; }
+  .heroPinkRightWrapper { justify-content: center; }
+  .paperImgBox, .paperImgBoxSmall { margin-top: -40px; margin-bottom: 20px; height: auto; aspect-ratio: 1/1.4; }
+  .researchTopWrapper { margin-bottom: 60px; }
+  .researchSplitAdvanced { padding: 40px 0; }
+  .researchImgColSmall { flex: 1; }
+  .videoCenterWrapper { margin-top: 40px; }
+  .internImgCol, .internTextCol { flex: 1 1 auto; width: 100%; }
+  .diaryCol { width: 100%; }
+  .paperBox { width: 60%; }
+}
+@media (max-width: 768px) {
+  .heroIntroText { margin: 80px auto 60px; }
+  .heroPinkLeft, .heroPinkText { font-size: 28px; }
+  .neonTitle, .sectionTitle { font-size: 26px; }
+  .sectionBarDot { font-size: 26px; }
+  .sectionBarLink { font-size: 20px; }
+  .neonTitleLeft { font-size: 28px; text-align: center; margin: 80px 0 60px 0; }
+  .diaryTitle { font-size: 28px; margin: 80px 0 40px; }
+  .internDean { margin-top: 80px; }
+  .researchTitle { font-size: 24px; }
+  .researchList { font-size: 18px; }
+  .pinkTitle, .tealTitle { font-size: 22px; }
+  .tealSubtitle { font-size: 16px; }
+  .giantCard { flex: 0 0 100%; }
+  .certImgBox { height: 320px; }
+  .gridFive { grid-template-columns: 1fr; }
+  .decoratedTitle { font-size: 16px; }
+  .compact .decoratedTitle { font-size: 14px; }
+  .extendedIntroSection { gap: 60px; }
+  .twoColNotes { grid-template-columns: 1fr; }
+  .paperBox { width: 80%; }
+
+  .playIconSvg { width: 60px; height: 60px; }
+  .pauseOverlay { opacity: 1; }
+}

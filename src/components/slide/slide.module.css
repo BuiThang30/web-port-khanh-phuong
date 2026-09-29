@@ -1,0 +1,91 @@
+.galleryViewport {
+  width: 100%;
+  overflow: hidden;
+  background-color: #111111;
+  padding: 24px 0;
+}
+
+.galleryTrack {
+  display: flex;
+  align-items: flex-start;
+  width: max-content;
+  will-change: transform;
+}
+
+.directionLeft {
+  animation: slide-scroll-left var(--slide-duration, 28s) linear infinite;
+}
+
+.directionRight {
+  animation: slide-scroll-right var(--slide-duration, 28s) linear infinite;
+}
+
+.pauseOnHover:hover .galleryTrack {
+  animation-play-state: paused;
+}
+
+.galleryItem {
+  flex-shrink: 0;
+  margin: 0 var(--slide-gap, 16px) 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.imageWrap {
+  position: relative;
+  height: var(--slide-image-height, 260px);
+  flex-shrink: 0;
+}
+
+.galleryImage {
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.galleryCaption {
+  width: 0;
+  min-width: 80%;
+  max-width: 95%;
+  margin: 0 auto;
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: justify;
+  text-align-last: center;
+  overflow-wrap: break-word;
+}
+
+@keyframes slide-scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slide-scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galleryTrack {
+    animation: none;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .galleryViewport {
+    padding: 16px 0;
+  }
+}

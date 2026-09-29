@@ -1,0 +1,278 @@
+.page {
+  width: 100%;
+  max-width: 1440px;
+  margin: 60px auto 0;
+  background-color: #111111;
+  overflow: hidden;
+}
+
+.content {
+  width: 100%;
+  padding: 0 8%;
+}
+
+.narrow {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.introSection {
+  padding: 90px 0 140px;
+}
+
+.section {
+  padding: 60px 0 90px;
+}
+
+.body {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.body p + p {
+  margin-top: 18px;
+}
+
+.scrollTitle {
+  color: #f230aa;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.banner {
+  background-color: #ccf656;
+  color: #f230aa;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  padding: 10px 30px;
+  margin-bottom: 60px;
+}
+
+.subHeading {
+  color: #ccf656;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 24px;
+}
+
+.centerTitle {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Đã chỉnh lại margin: 10px 0 34px để thẳng tắp lề bên trái */
+.labelBox {
+  position: relative;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 10px 0 34px;
+  padding: 16px 22px;
+  background-color: #fff5d0;
+  border: 3px solid #f230aa;
+  color: #154d3e;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.labelBox::before {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  background:
+    linear-gradient(#f230aa, #f230aa) top left / 15px 14px no-repeat,
+    linear-gradient(#f230aa, #f230aa) top right / 15px 14px no-repeat,
+    linear-gradient(#f230aa, #f230aa) bottom left / 15px 14px no-repeat,
+    linear-gradient(#f230aa, #f230aa) bottom right / 15px 14px no-repeat;
+  pointer-events: none;
+}
+
+.caption {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.captionStrong {
+  font-size: 17px;
+}
+
+.underline {
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.underline:hover {
+  color: #e2ff54;
+}
+
+.split {
+  display: flex;
+  align-items: flex-start;
+  gap: 56px;
+  margin-top: 90px;
+}
+
+.split > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.block {
+  margin-top: 60px;
+}
+
+.captioned {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.gap {
+  margin-top: 40px;
+}
+
+.pair {
+  display: flex;
+  gap: 20px;
+}
+
+.pair > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+}
+
+.groupRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.group {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.narrow .captioned + .captioned {
+  margin-top: 30px;
+}
+
+/* Xóa padding-left để thanh Scroll tự ăn vào lề padding của content */
+.rowBleed {
+  margin-top: 60px;
+}
+
+/* THUẬT TOÁN ĐỒNG BỘ CHIỀU CAO: Gán cứng width tỷ lệ nghịch với aspect-ratio để height ép về chuẩn 400px */
+.viewerItem {
+  margin: 0;
+  width: 299px; /* Tỷ lệ ảnh chuẩn (369x494) */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.viewerItemNarrow {
+  width: 294px; /* Dành cho các ảnh thon hơn (363x494) */
+}
+.viewerHorizontal {
+  width: 607px; /* Dành cho ảnh ngang khổ lớn (750x494) */
+}
+.viewerWide {
+  width: 925px; /* Dành cho khối gộp 3 ảnh (3x299 + 2x14 gap) */
+}
+
+.bleed {
+  margin: 70px 0;
+}
+
+.linkButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  padding: 10px 26px;
+  border: 3px solid #fff5d0;
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.linkButton:hover {
+  background-color: #fff5d0;
+  color: #111111;
+}
+
+@media (max-width: 1024px) {
+  .split {
+    flex-direction: column;
+    gap: 36px;
+    margin-top: 70px;
+  }
+  .viewerWide { width: 700px; }
+  .viewerHorizontal { width: 550px; }
+  .viewerItem { width: 260px; }
+  .viewerItemNarrow { width: 255px; }
+}
+
+@media (max-width: 768px) {
+  .content { padding: 0 6%; }
+  .introSection { padding: 50px 0 70px; }
+  .section { padding: 40px 0 60px; }
+  .scrollTitle { font-size: 26px; margin-bottom: 50px; }
+  .banner { font-size: 22px; margin-bottom: 40px; }
+  .subHeading { font-size: 20px; }
+  .labelBox { font-size: 18px; }
+  .body { font-size: 13px; }
+  .caption { font-size: 14px; }
+  .pair { gap: 12px; }
+  .row, .groupRow { flex-direction: column; }
+  .row > *, .groupRow > * { flex: none !important; }
+  
+  .viewerItem { width: 224px; }
+  .viewerItemNarrow { width: 220px; }
+  .viewerHorizontal { width: 280px; }
+  .viewerWide { width: 224px; }
+  
+  .viewerWide .row { flex-direction: row; }
+}

@@ -1,0 +1,200 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  height: 60px;
+  max-width: 1440px;
+  background-color: #FFF5D0;
+  margin: 0 auto;
+  font-family: var(--font);
+}
+
+.brand {
+  color: #48937E;
+  text-align: center;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  z-index: 101;
+}
+
+/* ================= DANH SÁCH LINK ================= */
+.links {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  padding: 0 12px;
+  color: #F230AA;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown {
+  display: none;
+}
+
+.subLink {
+  display: block;
+  padding: 7px 14px;
+  color: #CCF656;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* ================= HOVER (chỉ desktop) ================= */
+@media (min-width: 769px) {
+  .item:hover > .link,
+  .item:focus-within > .link {
+    background-color: #000;
+    color: #CCF656;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+  }
+
+  .item:hover > .dropdown,
+  .item:focus-within > .dropdown {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 16px 0 14px;
+    background-color: #000;
+  }
+
+  .subLink:hover,
+  .subLink:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+/* ================= HAMBURGER ================= */
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 101;
+}
+
+.hamburger {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #48937E;
+  position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: #48937E;
+  left: 0;
+}
+
+.hamburger::before { top: -7px; }
+.hamburger::after { top: 7px; }
+
+.hamburger.open { background-color: transparent; }
+.hamburger.open::before { transform: rotate(45deg); top: 0; }
+.hamburger.open::after { transform: rotate(-45deg); top: 0; }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .navContainer { padding: 0 20px; }
+  .brand { font-size: 18px; }
+  .links { gap: 4px; }
+  .link { font-size: 13px; padding: 0 14px; }
+  .subLink { font-size: 12px; padding: 6px 10px; }
+}
+
+@media (max-width: 768px) {
+  .navContainer {
+    height: 60px;
+  }
+  .menuToggle {
+    display: block;
+  }
+
+  .links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: #FEF7E5;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    display: none;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+    padding: 24px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .links.active {
+    display: flex;
+  }
+
+  .item {
+    height: auto;
+    align-items: center;
+  }
+  .link {
+    height: auto;
+    padding: 4px 0;
+    font-size: 16px;
+  }
+
+  /* Trên mobile: hiện luôn mục con, chữ nhỏ, màu teal cho dễ đọc trên nền kem */
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2px 0 6px;
+  }
+  .subLink {
+    padding: 3px 0;
+    color: #48937E;
+    font-size: 13px;
+  }
+}

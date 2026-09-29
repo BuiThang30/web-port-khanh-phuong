@@ -1,0 +1,22 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.image {
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.active {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image {
+    transition: none;
+  }
+}
