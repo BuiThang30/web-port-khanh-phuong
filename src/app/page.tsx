@@ -6,7 +6,8 @@ import FooterDNA from "@/components/footer/footer";
 
 const Hero = () => {
   return (
-    <>
+    // .page định nghĩa biến --u (1 "đơn vị thiết kế" = 1px ở 1440px) cho toàn trang
+    <div className={styles.page}>
       <div className={styles.container}>
         <video
           className={styles.bgVideo}
@@ -25,12 +26,15 @@ const Hero = () => {
         </div>
       </div>
 
-      <InteractiveTapestry /> 
+      {/* Bọc tapestry vào khung 1440px để nó không bị giãn full màn hình */}
+      <div className={styles.tapestryWrapper}>
+        <InteractiveTapestry />
+      </div>
 
       <section className={styles.aboutSection}>
         <div className={styles.aboutImageContent}>
           <Image
-            src="/image/home-2.png" 
+            src="/image/home-2.png"
             alt="About the Tailor"
             width={1440}
             height={1725}
@@ -41,10 +45,10 @@ const Hero = () => {
         <div className={styles.aboutTextContent}>
           <h2 className={styles.aboutTitle}>About the Tailor</h2>
           <p className={styles.aboutDescription}>
-            Born in the fertile soil of Vietnam and nurtured on the lush futuristic land of 
-            Singapore, I am the weave of the rich heritage of vast rice fields and the innovation of 
-            moving gardens. From math to healthcare to entrepreneurship, I enjoy embroidering 
-            life as interconnected threads. If I were to meet Fibonacci, Gregor Mendel and Alan 
+            Born in the fertile soil of Vietnam and nurtured on the lush futuristic land of
+            Singapore, I am the weave of the rich heritage of vast rice fields and the innovation of
+            moving gardens. From math to healthcare to entrepreneurship, I enjoy embroidering
+            life as interconnected threads. If I were to meet Fibonacci, Gregor Mendel and Alan
             Turing, I would invite them to map and stitch a strand of DNA on a digital embroider
           </p>
         </div>
@@ -53,7 +57,7 @@ const Hero = () => {
       <section className={styles.colorsSection}>
         <div className={styles.colorsImageContent}>
           <Image
-            src="/image/home-3.png" 
+            src="/image/home-3.png"
             alt="Pink and green"
             width={1440}
             height={1200}
@@ -63,11 +67,11 @@ const Hero = () => {
         </div>
         <div className={styles.colorsTextContent}>
           <p className={styles.colorsDescription}>
-            Pink and green, the color of flowers and plants, bloom into my daily life 
-            (Strawberry matcha, Wicked, clothing style and even personal belongings). Pink 
-            reminds me of the passion and genuine joy in my work as well as bringing 
-            warmth to people around me. Green, known as the middle hue in the color 
-            wavelength, brings me close to nature and inspires me to emanate freshness 
+            Pink and green, the color of flowers and plants, bloom into my daily life
+            (Strawberry matcha, Wicked, clothing style and even personal belongings). Pink
+            reminds me of the passion and genuine joy in my work as well as bringing
+            warmth to people around me. Green, known as the middle hue in the color
+            wavelength, brings me close to nature and inspires me to emanate freshness
             and originality.
           </p>
         </div>
@@ -78,7 +82,7 @@ const Hero = () => {
           <div className={styles.imageBoxWrapper}>
             <div className={styles.collectionImageContainer}>
               <Image
-                src="/image/home-10.png" 
+                src="/image/home-10.png"
                 alt="My pinky greeny collection"
                 width={760}
                 height={894}
@@ -134,29 +138,29 @@ const Hero = () => {
 
       <section className={styles.blueprintSection}>
         <div className={styles.blueprintContainer}>
-          
+
           <div className={styles.blueprintHeader}>
             <h2 className={styles.blueprintTitle}>My Blueprint</h2>
             <p className={styles.blueprintDescription}>
-              Born into a family of scholars with both parents moving to town for university and 
-              both sisters studying in the States, I forge a similar belief in the power of education to 
-              empower and transform the world. Everywhere I visit I always collect the threads of 
-              values that nurture who I am today. My transformational 12-year educational journey 
+              Born into a family of scholars with both parents moving to town for university and
+              both sisters studying in the States, I forge a similar belief in the power of education to
+              empower and transform the world. Everywhere I visit I always collect the threads of
+              values that nurture who I am today. My transformational 12-year educational journey
               has sown unique patterns in me!
             </p>
           </div>
 
           <div className={styles.timelineWrapper}>
-            
+
             <div className={`${styles.timelineItem} ${styles.item1}`}>
               <div className={styles.timelineText}>
                 <h3 className={styles.timelineSchool}>
-                  Dinh Tien Hoang Primary School<br/>(2014-2019) | Class Chairperson
+                  Dinh Tien Hoang Primary School<br />(2014-2019) | Class Chairperson
                 </h3>
                 <p className={styles.timelineQuote}>&apos;Unity - Confidence - Knowledge&apos;</p>
                 <p className={styles.timelineDesc}>
-                  Where I had my first calligraphy, counting, reading and leading a class; solving 
-                  logic math problems like Pigeonhole theorem or counting time backwards and 
+                  Where I had my first calligraphy, counting, reading and leading a class; solving
+                  logic math problems like Pigeonhole theorem or counting time backwards and
                   forwards thousand years brought me the most joy.
                 </p>
               </div>
@@ -168,12 +172,12 @@ const Hero = () => {
             <div className={`${styles.timelineItem} ${styles.reverse} ${styles.item2}`}>
               <div className={styles.timelineText}>
                 <h3 className={styles.timelineSchool}>
-                  Tran Dai Nghia High School for the<br/>Gifted (2019-2022)<br/>Class Vice chairperson
+                  Tran Dai Nghia High School for the<br />Gifted (2019-2022)<br />Class Vice chairperson
                 </h3>
                 <p className={styles.timelineQuote}>&apos;Learning to know, learning to do, learning to be, learning to live together&apos;</p>
                 <p className={styles.timelineDesc}>
-                  Where my love in math kindled with a City Gold medal at 13; decorating my 
-                  notebooks with geometry like the Butterfly Theorem or the British Flag put me 
+                  Where my love in math kindled with a City Gold medal at 13; decorating my
+                  notebooks with geometry like the Butterfly Theorem or the British Flag put me
                   at ease.
                 </p>
               </div>
@@ -185,14 +189,14 @@ const Hero = () => {
             <div className={`${styles.timelineItem} ${styles.item3}`}>
               <div className={styles.timelineText}>
                 <h3 className={styles.timelineSchool}>
-                  Convent of the Holy Infant Jesus<br/>(2023-2024) | Class Chairperson
+                  Convent of the Holy Infant Jesus<br />(2023-2024) | Class Chairperson
                 </h3>
                 <p className={styles.timelineQuote}>&apos;Simple in virtue, steadfast in duty&apos;</p>
                 <p className={styles.timelineDesc}>
-                  Where I found new joy in science; had my first lab lessons and represented 
-                  school for a biology practical olympiad at Gardens by the Bay.<br/><br/>
-                  Where I found inspiring peers to build an start-up of retained plastic bracelets to 
-                  address UNSDG 14, granted the best annual report and donated our profits 
+                  Where I found new joy in science; had my first lab lessons and represented
+                  school for a biology practical olympiad at Gardens by the Bay.<br /><br />
+                  Where I found inspiring peers to build an start-up of retained plastic bracelets to
+                  address UNSDG 14, granted the best annual report and donated our profits
                   to the Singapore Environment Council.
                 </p>
               </div>
@@ -204,12 +208,12 @@ const Hero = () => {
             <div className={`${styles.timelineItem} ${styles.reverse} ${styles.item4}`}>
               <div className={styles.timelineText}>
                 <h3 className={styles.timelineSchool}>
-                  Hwa Chong Institution (2025-2026)<br/>Values-In-Action Councillor
+                  Hwa Chong Institution (2025-2026)<br />Values-In-Action Councillor
                 </h3>
                 <p className={styles.timelineQuote}>&apos;Live with passion, lead with compassion&apos;</p>
                 <p className={styles.timelineDesc}>
-                  Where I became an ambassador bringing the culture of giving in school and 
-                  beyond.<br/><br/>
+                  Where I became an ambassador bringing the culture of giving in school and
+                  beyond.<br /><br />
                   Where I led inspirational events and global affairs discussions.
                 </p>
               </div>
@@ -227,10 +231,11 @@ const Hero = () => {
             </div>
 
           </div>
-          
+
           <h2 className={styles.blueprintFooterTitle}>Keep unravelling!</h2>
         </div>
       </section>
+
       {/* --- PHẦN 8: FOOTER (CONNECT WITH ME) --- */}
       <section className={styles.footerSection}>
         <div className={styles.footerContainer}>
@@ -250,7 +255,7 @@ const Hero = () => {
 
           <div className={styles.contactInfo}>
             <h2 className={styles.contactTitle}>Connect with me</h2>
-            
+
             <div className={styles.contactBlock}>
               <a href="mailto:phuonganh6884@gmail.com" className={styles.contactItem}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
@@ -261,9 +266,9 @@ const Hero = () => {
                 <span>+65 8242 7977</span>
               </a>
             </div>
-            
+
             <hr className={styles.contactDivider} />
-            
+
             <div className={styles.contactBlock}>
               <a href="#" target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
@@ -274,9 +279,9 @@ const Hero = () => {
                 <span>phuonganh6884-xyz</span>
               </a>
             </div>
-            
+
             <hr className={styles.contactDivider} />
-            
+
             <div className={styles.contactBlock}>
               <a href="#" target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
@@ -296,7 +301,7 @@ const Hero = () => {
 
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

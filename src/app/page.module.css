@@ -1,3 +1,9 @@
+.page {
+  --u: calc(min(100vw, 1440px) / 1440);
+  width: 100%;
+  overflow-x: hidden;
+}
+
 /* =========================================
    HERO VIDEO SECTION
 ========================================= */
@@ -5,9 +11,9 @@
   position: relative;
   width: 100%;
   max-width: 1440px;
-  height: 703px;
+  aspect-ratio: 1440 / 703; /* thay cho height: 703px cố định */
   margin: 0 auto;
-  margin-top: 60px; 
+  margin-top: 60px;
   overflow: hidden;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
 }
@@ -36,20 +42,20 @@
 .textContainer {
   position: absolute;
   z-index: 2;
-  top: 6%; 
+  top: 6%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  padding: 11px 22px;
+  padding: calc(11 * var(--u)) calc(22 * var(--u));
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: calc(8 * var(--u));
 }
 
 .greetingText {
   color: #F230AA;
   text-align: center;
-  font-size: 22px;
+  font-size: calc(22 * var(--u));
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -59,10 +65,10 @@
 .nameText {
   color: #F230AA;
   text-align: center;
-  font-size: 45px;
+  font-size: calc(45 * var(--u));
   font-style: normal;
   font-weight: 700;
-  line-height: 45px;
+  line-height: calc(45 * var(--u));
   margin: 0;
   text-transform: uppercase;
 }
@@ -70,9 +76,30 @@
 .subText {
   color: #F230AA;
   text-align: center;
-  font-size: 16px;
+  font-size: calc(16 * var(--u));
   font-weight: 600;
   margin: 0;
+}
+
+/* =========================================
+   TAPESTRY WRAPPER (khung 1440px cho đường cong vàng)
+========================================= */
+.tapestryWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Đảm bảo SVG / canvas bên trong luôn co theo khung */
+.tapestryWrapper > * {
+  max-width: 100%;
+}
+.tapestryWrapper svg,
+.tapestryWrapper canvas,
+.tapestryWrapper img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* =========================================
@@ -81,7 +108,7 @@
 .aboutSection {
   position: relative;
   width: 100%;
-  max-width: 1440px; 
+  max-width: 1440px;
   margin: 0 auto;
   background-color: transparent;
   display: flex;
@@ -93,42 +120,41 @@
 .aboutImageContent {
   width: 100%;
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
 }
 
 .aboutImage {
-  width: auto; 
-  max-width: 100%;
+  width: 100%; /* trước là auto -> không co giãn đúng tỉ lệ */
   height: auto;
   display: block;
   object-fit: contain;
-  object-position: right center; 
+  object-position: right center;
 }
 
 .aboutTextContent {
   position: absolute;
-  top: 45%; 
-  left: 8%;  
-  width: 100%;
-  max-width: 638px; 
+  top: 45%;
+  left: 8%;
+  width: calc(638 * var(--u));
+  max-width: 100%;
   z-index: 2;
 }
 
 .aboutTitle {
   color: #F230AA;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 27px; 
+  font-size: calc(27 * var(--u));
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: calc(20 * var(--u));
 }
 
 .aboutDescription {
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 13.5px; 
+  font-size: calc(13.5 * var(--u));
   font-style: normal;
   font-weight: 500;
-  line-height: 18.75px; 
+  line-height: calc(18.75 * var(--u));
   text-align: justify;
 }
 
@@ -138,7 +164,7 @@
 .colorsSection {
   position: relative;
   width: 100%;
-  max-width: 1440px; 
+  max-width: 1440px;
   margin: 0 auto;
   background-color: transparent;
   display: flex;
@@ -154,8 +180,7 @@
 }
 
 .colorsImage {
-  width: auto;
-  max-width: 100%;
+  width: 100%;
   height: auto;
   display: block;
   object-fit: contain;
@@ -164,20 +189,20 @@
 
 .colorsTextContent {
   position: absolute;
-  top: 15%; 
-  right: 8%; 
-  width: 100%;
-  max-width: 550px; 
+  top: 15%;
+  right: 8%;
+  width: calc(550 * var(--u));
+  max-width: 100%;
   z-index: 2;
 }
 
 .colorsDescription {
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 13.5px;
+  font-size: calc(13.5 * var(--u));
   font-style: normal;
   font-weight: 500;
-  line-height: 18.75px;
+  line-height: calc(18.75 * var(--u));
   text-align: justify;
 }
 
@@ -188,9 +213,9 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 80px 8%; 
+  padding: calc(80 * var(--u)) 8%;
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   overflow: hidden;
 }
 
@@ -198,18 +223,19 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 600px;
+  width: calc(600 * var(--u));
+  max-width: 100%;
 }
 
 .imageBoxWrapper {
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: calc(50 * var(--u));
   width: 100%;
 }
 
 .collectionImageContainer {
   position: relative;
-  border: 2px solid #E2FF54; 
+  border: 2px solid #E2FF54;
   padding: 0;
   display: block;
 }
@@ -236,14 +262,14 @@
 
 .collectionLabel {
   position: absolute;
-  bottom: -20px;
-  right: -30px; 
+  bottom: calc(-20 * var(--u));
+  right: calc(-30 * var(--u));
   background-color: #FFF5D0;
   border: 2px solid #F230AA;
-  padding: 12px 24px;
-  color: #154d3e; 
+  padding: calc(12 * var(--u)) calc(24 * var(--u));
+  color: #154d3e;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 14.5px;
+  font-size: calc(14.5 * var(--u));
   font-weight: 700;
   line-height: 1.4;
   z-index: 3;
@@ -269,19 +295,19 @@
 .inventionTitle {
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 22px;
+  font-size: calc(22 * var(--u));
   font-weight: 700;
   line-height: 1.4;
-  margin-bottom: 20px;
+  margin-bottom: calc(20 * var(--u));
 }
 
 .healButton {
   background: transparent;
   border: 1px solid #FFF5D0;
   color: #FFF5D0;
-  padding: 10px 24px;
+  padding: calc(10 * var(--u)) calc(24 * var(--u));
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 14px;
+  font-size: calc(14 * var(--u));
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
@@ -302,28 +328,28 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 60px 8% 100px 8%; 
+  padding: calc(60 * var(--u)) 8% calc(100 * var(--u)) 8%;
 }
 
 .faithContainer {
-  max-width: 850px; 
+  max-width: calc(850 * var(--u));
 }
 
 .faithTitle {
   color: #F230AA;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 32px;
+  font-size: calc(32 * var(--u));
   font-weight: 700;
-  margin-bottom: 30px;
+  margin-bottom: calc(30 * var(--u));
 }
 
 .faithText p {
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 13.5px;
+  font-size: calc(13.5 * var(--u));
   font-weight: 500;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: calc(20 * var(--u));
   text-align: justify;
 }
 
@@ -340,13 +366,13 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  padding-bottom: 80px;
+  padding-bottom: calc(80 * var(--u));
 }
 
 .faithImagesContainer {
   width: 100%;
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
 }
 
 .faithCollageImage {
@@ -362,36 +388,37 @@
 .blueprintSection {
   width: 100%;
   background-color: #111111;
-  padding: 100px 0; 
+  padding: calc(100 * var(--u)) 0;
   display: flex;
   justify-content: center;
 }
 
 .blueprintContainer {
   width: 100%;
-  max-width: 1440px; 
+  max-width: 1440px;
   display: flex;
   flex-direction: column;
 }
 
 .blueprintHeader {
-  max-width: 650px;
-  margin-bottom: 80px;
-  padding: 0 8%; 
+  max-width: calc(650 * var(--u));
+  margin-bottom: calc(80 * var(--u));
+  padding: 0 8%;
+  box-sizing: content-box;
 }
 
 .blueprintTitle {
-  color: #F230AA; 
+  color: #F230AA;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 32px;
+  font-size: calc(32 * var(--u));
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: calc(20 * var(--u));
 }
 
 .blueprintDescription {
-  color: #FFF5D0; 
+  color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 13.5px;
+  font-size: calc(13.5 * var(--u));
   line-height: 1.6;
   font-weight: 500;
   text-align: justify;
@@ -400,7 +427,7 @@
 .timelineWrapper {
   display: flex;
   flex-direction: column;
-  gap: 80px; 
+  gap: calc(80 * var(--u));
 }
 
 .timelineItem {
@@ -416,103 +443,89 @@
 
 .timelineText {
   flex: 1;
-  max-width: 800px;
-  padding: 0 8%; 
+  max-width: calc(800 * var(--u));
+  padding: 0 8%;
 }
 
 .timelineSchool {
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 18px;
+  font-size: calc(18 * var(--u));
   font-weight: 700;
   line-height: 1.4;
-  margin-bottom: 12px;
+  margin-bottom: calc(12 * var(--u));
   position: relative;
-  padding-left: 20px;
+  padding-left: calc(20 * var(--u));
 }
 
 .timelineSchool::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 6px;
-  width: 8px;
-  height: 8px;
+  top: calc(6 * var(--u));
+  width: calc(8 * var(--u));
+  height: calc(8 * var(--u));
   background-color: #E2FF54;
 }
 
 .timelineQuote {
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 14px;
+  font-size: calc(14 * var(--u));
   font-weight: 700;
-  font-style: italic; 
-  margin-bottom: 16px;
-  padding-left: 20px;
+  font-style: italic;
+  margin-bottom: calc(16 * var(--u));
+  padding-left: calc(20 * var(--u));
 }
 
 .timelineDesc {
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 13.5px;
+  font-size: calc(13.5 * var(--u));
   font-weight: 500;
   line-height: 1.6;
-  padding-left: 20px;
+  padding-left: calc(20 * var(--u));
   text-align: justify;
 }
 
 .timelineImageWrap {
   flex: 1;
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
 }
 
 .timelineItem.reverse .timelineImageWrap {
-  justify-content: flex-start; 
+  justify-content: flex-start;
 }
 
 .timelineImg {
   width: 100%;
-  max-width: 700px;
+  max-width: calc(700 * var(--u));
   height: auto;
   object-fit: contain;
-  object-position: right center; 
+  object-position: right center;
 }
 
 .timelineItem.reverse .timelineImg {
-  object-position: left center; 
+  object-position: left center;
 }
 
 .blueprintFooterTitle {
-  color: #E2FF54; 
+  color: #E2FF54;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 32px;
+  font-size: calc(32 * var(--u));
   font-weight: 700;
   padding: 0 8%;
 }
 
 /* =========================================
-   ĐIỀU CHỈNH MARGIN RIÊNG CHO TỪNG MỐC
+   MARGIN ÂM RIÊNG CHO TỪNG MỐC (scale theo --u)
 ========================================= */
-.item1 {
-  margin-top: -280px; 
-}
-
-.item2 {
-  margin-top: -230px; 
-}
-
-.item3 {
-  margin-top: -100px; 
-}
-
-.item4 {
-  margin-top: -110px; 
-}
-
-.item5 {
-  margin-top: -190px; 
-}
+.item1 { margin-top: calc(-280 * var(--u)); }
+.item2 { margin-top: calc(-230 * var(--u)); }
+.item3 { margin-top: calc(-100 * var(--u)); }
+.item4 { margin-top: calc(-110 * var(--u)); }
+.item5 { margin-top: calc(-190 * var(--u)); }
 
 /* =========================================
    FOOTER
@@ -520,7 +533,7 @@
 .footerSection {
   width: 100%;
   background-color: #111111;
-  padding-top: 60px;
+  padding-top: calc(60 * var(--u));
   overflow: hidden;
 }
 
@@ -548,32 +561,33 @@
   position: absolute;
   left: 5%;
   top: 60%;
-  max-width: 420px;
+  width: calc(420 * var(--u));
+  max-width: 100%;
   z-index: 2;
 }
 
 .contactTitle {
-  color: #F230AA; 
+  color: #F230AA;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 32px;
+  font-size: calc(32 * var(--u));
   font-weight: 700;
-  margin-bottom: 40px;
+  margin-bottom: calc(40 * var(--u));
 }
 
 .contactBlock {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin: 24px 0;
+  gap: calc(16 * var(--u));
+  margin: calc(24 * var(--u)) 0;
 }
 
 .contactItem {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: calc(16 * var(--u));
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 14px;
+  font-size: calc(14 * var(--u));
   font-weight: 500;
   text-decoration: none;
   width: fit-content;
@@ -588,6 +602,8 @@
 .contactItem svg {
   color: #FFF5D0;
   flex-shrink: 0;
+  width: calc(20 * var(--u));
+  height: calc(20 * var(--u));
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
@@ -608,56 +624,17 @@
 .contactDivider {
   border: none;
   height: 1px;
-  background-color: rgba(255, 245, 208, 0.3); /* Dòng kẻ xám nhạt */
+  background-color: rgba(255, 245, 208, 0.3);
   margin: 0;
 }
 
-/* --- Responsive: vẫn giữ nguyên kiểu "đè lên nhau" như hình 1, chỉ đổi tỉ lệ --- */
-@media (max-width: 992px) {
-  .footerSvgImage {
-    max-width: 760px;
-  }
-  .contactInfo {
-    left: 6%;
-    top: 56%;
-    max-width: 340px;
-  }
-}
-
-@media (max-width: 768px) {
-  .contactTitle {
-    font-size: 26px;
-  }
-  .contactItem {
-    font-size: 13px;
-  }
-  .footerSvgImage {
-    max-width: 100%;
-  }
-  .contactInfo {
-    left: 6%;
-    top: 54%;
-    max-width: 260px;
-  }
-}
-
 /* =========================================
-   RESPONSIVE DESIGN (MEDIA QUERIES)
+   RESPONSIVE (chỉ đổi bố cục khi màn hình thật sự nhỏ,
+   còn từ 769px trở lên mọi thứ đã tự scale bằng --u)
 ========================================= */
-@media (max-width: 1024px) {
-  .aboutTextContent {
-    max-width: 500px;
-    left: 5%;
-  }
-  .colorsTextContent {
-    max-width: 450px;
-    right: 5%;
-  }
-}
-
 @media (max-width: 992px) {
   .timelineItem, .timelineItem.reverse {
-    flex-direction: column; 
+    flex-direction: column;
     gap: 40px;
   }
   .timelineText {
@@ -665,24 +642,31 @@
     padding: 0 5%;
   }
   .timelineImageWrap, .timelineItem.reverse .timelineImageWrap {
-    justify-content: center; 
+    justify-content: center;
     padding: 0 5%;
   }
   .timelineImg, .timelineItem.reverse .timelineImg {
-    object-position: center; 
+    object-position: center;
+    max-width: 700px;
+  }
+  /* Khi xếp dọc thì bỏ margin âm để các mục không đè nhau */
+  .item1, .item2, .item3, .item4, .item5 {
+    margin-top: 0;
   }
 }
 
 @media (max-width: 768px) {
+  /* Trên mobile dùng cỡ chữ px cố định cho dễ đọc */
   .aboutTextContent {
-    position: relative; 
+    position: relative;
     top: 0;
     left: 0;
+    width: 100%;
     padding: 40px 5%;
   }
   .aboutSection {
     flex-direction: column-reverse;
-    margin-top: -50px; 
+    margin-top: -50px;
   }
   .aboutTitle, .faithTitle, .blueprintTitle, .blueprintFooterTitle {
     font-size: 24px;
@@ -691,29 +675,36 @@
     font-size: 12px;
     line-height: 18px;
   }
+  .colorsDescription, .blueprintDescription, .timelineDesc {
+    font-size: 12px;
+    line-height: 18px;
+  }
   .colorsTextContent {
-    position: relative; 
+    position: relative;
     top: 0;
     right: 0;
+    width: 100%;
     padding: 40px 5%;
-    max-width: 100%;
   }
   .colorsSection {
-    flex-direction: column; 
+    flex-direction: column;
   }
   .collectionSection {
     padding: 60px 5%;
     justify-content: center;
   }
   .collectionContent {
-    max-width: 100%;
+    width: 100%;
   }
   .collectionLabel {
-    right: 0; 
+    right: 0;
     bottom: -30px;
+    font-size: 13px;
   }
+  .inventionTitle { font-size: 18px; }
+  .healButton { font-size: 13px; padding: 10px 20px; }
   .faithSection {
-    padding: 40px 5% 40px 5%;
+    padding: 40px 5%;
   }
   .faithImagesSection {
     padding-bottom: 50px;
@@ -726,5 +717,34 @@
   }
   .timelineSchool {
     font-size: 16px;
+    padding-left: 20px;
+  }
+  .timelineSchool::before {
+    width: 8px;
+    height: 8px;
+    top: 6px;
+  }
+  .timelineQuote { font-size: 13px; padding-left: 20px; }
+  .timelineDesc { padding-left: 20px; }
+
+  /* Footer */
+  .footerSvgImage {
+    max-width: 100%;
+  }
+  .contactInfo {
+    left: 6%;
+    top: 54%;
+    width: 260px;
+  }
+  .contactTitle {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+  .contactItem {
+    font-size: 12px;
+  }
+  .contactItem svg {
+    width: 18px;
+    height: 18px;
   }
 }
