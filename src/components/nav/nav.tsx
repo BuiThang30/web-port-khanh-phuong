@@ -45,7 +45,7 @@ const LINKS: NavItem[] = [
       { label: "Community Service", href: "/global-fabric#community-service" },
     ],
   },
-  { label: "Entrepreneurial Loom", href: "/entrepreneurial-loom" },
+  { label: "entrepreneurial loom", href: "/entrepreneurial-loom" },
   {
     label: "creative thread",
     href: "/creative-thread",
