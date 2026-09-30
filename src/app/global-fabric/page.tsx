@@ -401,7 +401,7 @@ export default function GlobalFabric() {
               that science becomes truly global when curiosity gives us a common
               language.
             </p>
-            <a className={styles.linkButton} href="#">
+            <a className={styles.linkButton} href="https://isyf.hci.edu.sg/">
               Website <span>→</span>
             </a>
           </div>
@@ -834,7 +834,7 @@ export default function GlobalFabric() {
               educational institutions have brought structure to my
               volunteering.
             </p>
-            <a className={styles.linkButton} href="#">
+            <a className={styles.linkButton} href="https://cipcouncil2.wixstudio.com/viacouncil">
               Website <span>→</span>
             </a>
           </div>

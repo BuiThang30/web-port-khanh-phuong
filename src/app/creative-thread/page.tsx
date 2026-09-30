@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 
@@ -51,33 +51,62 @@ const AutoFadeImage = ({ images, aspectRatio = "3 / 4" }: { images: string[], as
   );
 };
 
-// Component chứa ảnh thumbnail có nút Play trỏ tới link YouTube
+// Nút Play dùng chung (hình tròn trắng + tam giác đen)
+const PlayIcon = () => (
+  <svg viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M8 5v14l11-7z" />
+  </svg>
+);
+
+// Ảnh thumbnail có nút Play, bấm vào mở link sang trang khác
 const VideoLinkBox = ({ src, link, alt }: { src: string, link: string, alt: string }) => (
   <a href={link} target="_blank" rel="noopener noreferrer" className={styles.videoLinkWrapper}>
     <div className={styles.imgBox} style={{ aspectRatio: "16 / 9" }}>
       <Image src={src} alt={alt} fill className={styles.fillImg} sizes="(max-width: 768px) 100vw, 50vw" />
       <div className={styles.playButtonOverlay}>
-        <svg viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 5v14l11-7z" />
-        </svg>
+        <PlayIcon />
       </div>
     </div>
   </a>
 );
 
-// Component phát trực tiếp file video MP4 có sẵn
-const VideoPlayerBox = ({ src }: { src: string }) => (
-  <div className={styles.imgBox} style={{ aspectRatio: "16 / 9" }}>
-    <video
-      src={src}
-      autoPlay
-      loop
-      muted
-      playsInline
-      className={styles.fillVideo}
-    />
-  </div>
-);
+// Video MP4 phát tại chỗ: hiện nút Play, bấm vào mới chạy
+const VideoPlayerBox = ({ src, poster }: { src: string; poster?: string }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [started, setStarted] = useState(false); // đã bấm play ít nhất 1 lần
+  const [paused, setPaused] = useState(true);
+
+  const handlePlay = () => {
+    videoRef.current?.play();
+  };
+
+  return (
+    <div className={styles.imgBox} style={{ aspectRatio: "16 / 9" }}>
+      <video
+        ref={videoRef}
+        src={src}
+        poster={poster}
+        playsInline
+        preload="metadata"
+        controls={started}
+        className={styles.fillVideo}
+        onPlay={() => { setStarted(true); setPaused(false); }}
+        onPause={() => setPaused(true)}
+        onEnded={() => setPaused(true)}
+      />
+      {paused && (
+        <button
+          type="button"
+          aria-label="Play video"
+          onClick={handlePlay}
+          className={`${styles.playButtonOverlay} ${styles.playButtonClickable}`}
+        >
+          <PlayIcon />
+        </button>
+      )}
+    </div>
+  );
+};
 
 export default function CreativeThread() {
   return (
@@ -224,9 +253,9 @@ export default function CreativeThread() {
                 Inspired by how life-changing and uplifting the vlogs on Youtube
                 are, I create my own Youtube channel called
                 &quot;hellophuongday&quot; to share the footage of my vigorous
-                teenagehood studying abroad. As simple as Capcut, technology and 
-                media can intrigue and connect people around the globe. I would 
-                consider myself as a seasonal Youtuber as I edit video out of zeal 
+                teenagehood studying abroad. As simple as Capcut, technology and
+                media can intrigue and connect people around the globe. I would
+                consider myself as a seasonal Youtuber as I edit video out of zeal
                 not out of profession.
               </p>
             </div>
@@ -317,17 +346,17 @@ export default function CreativeThread() {
 
         <div className={styles.sportZigzagRow}>
           <div className={styles.sportImageCol}>
-             <div className={styles.skatingImagesRow}>
-                <div className={styles.imgBox} style={{ flex: 1, aspectRatio: "1 / 1.5" }}>
-                  <Image src={IMG(26)} alt="Skating 1" fill className={styles.fillImg} sizes="(max-width: 768px) 33vw, 16vw" />
-                </div>
-                <div className={styles.imgBox} style={{ flex: 1, aspectRatio: "1 / 1.5" }}>
-                  <Image src={IMG(27)} alt="Skating 2" fill className={styles.fillImg} sizes="(max-width: 768px) 33vw, 16vw" />
-                </div>
-                <div className={styles.imgBox} style={{ flex: 1, aspectRatio: "1 / 1.5" }}>
-                  <Image src={IMG(28)} alt="Skating 3" fill className={styles.fillImg} sizes="(max-width: 768px) 33vw, 16vw" />
-                </div>
-             </div>
+            <div className={styles.skatingImagesRow}>
+              <div className={styles.imgBox} style={{ flex: 1, aspectRatio: "1 / 1.5" }}>
+                <Image src={IMG(26)} alt="Skating 1" fill className={styles.fillImg} sizes="(max-width: 768px) 33vw, 16vw" />
+              </div>
+              <div className={styles.imgBox} style={{ flex: 1, aspectRatio: "1 / 1.5" }}>
+                <Image src={IMG(27)} alt="Skating 2" fill className={styles.fillImg} sizes="(max-width: 768px) 33vw, 16vw" />
+              </div>
+              <div className={styles.imgBox} style={{ flex: 1, aspectRatio: "1 / 1.5" }}>
+                <Image src={IMG(28)} alt="Skating 3" fill className={styles.fillImg} sizes="(max-width: 768px) 33vw, 16vw" />
+              </div>
+            </div>
           </div>
           <div className={styles.sportTextCol}>
             <h3 className={styles.sportTitle}>SKATING</h3>
@@ -359,7 +388,7 @@ export default function CreativeThread() {
             </div>
           </div>
           <div className={styles.sportImageCol}>
-             <VideoPlayerBox src="/image/creative-thread-video-3.mp4" />
+            <VideoPlayerBox src="/image/creative-thread-video-3.mp4" />
           </div>
         </div>
       </div>
@@ -384,23 +413,23 @@ export default function CreativeThread() {
           </p>
         </div>
 
-        {/* HÀNG 1: 2 Video YouTube có gạch chân link */}
+        {/* HÀNG 1: 2 video YouTube có link chú thích gạch chân */}
         <div className={styles.twoCol}>
           <div className={styles.col}>
-            <VideoLinkBox 
-              src="/image/creative-thread-video-4.png" 
-              link="https://www.youtube.com/watch?v=lYz7DKNUPHo&list=RDlYz7DKNUPHo&start_radio=1" 
-              alt="IJ call music video from my alma mater" 
+            <VideoLinkBox
+              src="/image/creative-thread-video-4.png"
+              link="https://www.youtube.com/watch?v=lYz7DKNUPHo&list=RDlYz7DKNUPHo&start_radio=1"
+              alt="IJ call music video from my alma mater"
             />
             <a href="https://www.youtube.com/watch?v=lYz7DKNUPHo&list=RDlYz7DKNUPHo&start_radio=1" target="_blank" rel="noopener noreferrer" className={styles.choirLinkCentered}>
               IJ call music video from my alma mater
             </a>
           </div>
           <div className={styles.col}>
-            <VideoLinkBox 
-              src="/image/creative-thread-video-5.png" 
-              link="https://www.youtube.com/watch?v=r7oB0Mc-vI4&list=RDr7oB0Mc-vI4&start_radio=1" 
-              alt="Distinction | Singapore Youth Festival 2023" 
+            <VideoLinkBox
+              src="/image/creative-thread-video-5.png"
+              link="https://www.youtube.com/watch?v=r7oB0Mc-vI4&list=RDr7oB0Mc-vI4&start_radio=1"
+              alt="Distinction | Singapore Youth Festival 2023"
             />
             <a href="https://www.youtube.com/watch?v=r7oB0Mc-vI4&list=RDr7oB0Mc-vI4&start_radio=1" target="_blank" rel="noopener noreferrer" className={styles.choirLinkCentered}>
               Distinction | Singapore Youth Festival 2023
@@ -408,7 +437,7 @@ export default function CreativeThread() {
           </div>
         </div>
 
-        {/* HÀNG 2: 1 Ảnh tĩnh IMG(29) trái & 1 Video MP4 creative-thread-video-6.mp4 phải - Chung 1 chú thích */}
+        {/* HÀNG 2: ảnh tĩnh bên trái & video MP4 bên phải - chung 1 chú thích */}
         <div className={styles.twoCol} style={{ marginTop: 60 }}>
           <div className={styles.col}>
             <div className={styles.imgBox} style={{ aspectRatio: "16 / 9" }}>
@@ -421,7 +450,7 @@ export default function CreativeThread() {
         </div>
         <p className={styles.choirNameCentered} style={{ marginTop: -20, marginBottom: 60 }}>Phu Hanh church choir</p>
 
-        {/* HÀNG 3: 2 Ảnh tĩnh IMG(30) và IMG(31) - Chung 1 chú thích */}
+        {/* HÀNG 3: 2 ảnh tĩnh - chung 1 chú thích */}
         <div className={styles.twoCol} style={{ marginTop: 20, alignItems: "center" }}>
           <div className={styles.col}>
             <div className={styles.imgBox} style={{ aspectRatio: "16 / 9" }}>

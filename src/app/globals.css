@@ -3,7 +3,15 @@
 /* 1. NẠP FONT TỪ THƯ MỤC PUBLIC */
 @font-face {
   font-family: "Akzidenz-Grotesk BQ Extended";
-  src: url('/fonts/Akzidenz-Grotesk Extended BQ Regular.otf') format('opentype'); /* Sửa lại đuôi file cho đúng với font của bạn .ttf, .woff,... */
+  src: url('/fonts/akzidenz-grotesk-bq-light-extended.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Akzidenz-Grotesk BQ Extended-1";
+  src: url('/fonts/Akzidenz-Grotesk Extended BQ Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -25,7 +33,7 @@ html { scroll-behavior: smooth; }
 body { 
   background: var(--bg); 
   color: var(--cream); 
-  font-family: var(--font); /* Áp dụng font ở đây */
+  font-family: var(--font);
   font-weight: 500; 
   overflow-x: hidden; 
 }

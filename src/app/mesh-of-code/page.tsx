@@ -8,9 +8,9 @@ const IMG = (n: number) => `/image/mesh-of-code-${n}.png`;
 const VID = (n: number) => `/image/mesh-of-code-${n}.mp4`;
 
 // ================= LINK PHẦN INTERNSHIP =================
-const NUS_SPH_LINK = "https://sph.nus.edu.sg/";   // chữ gạch chân trên thanh tiêu đề Internship
-const POST_EVALUATION_LINK = "#";                  // thay bằng link "My post evaluation"
-const RESEARCH_PAPER_LINK = "#";                   // thay bằng link "Link to research"
+const NUS_SPH_LINK = "https://sph.nus.edu.sg/";
+const POST_EVALUATION_LINK = "https://www.linkedin.com/posts/healthfinancing-universalhealthcoverage-covid19-share-7475711514994237441-sFTH/";
+const RESEARCH_PAPER_LINK = "https://pubmed.ncbi.nlm.nih.gov/42307858/";
 
 // ================= DỮ LIỆU CHỨNG NHẬN =================
 const CERTIFICATES = [
@@ -134,7 +134,7 @@ export default function MeshOfCode() {
               <div className={styles.heroPinkText}>
                 Like a mathematician, tailors from the past mesmerized me with geometric patterns discreetly incorporated in traditional fabric.
               </div>
-              <a href="#" className={styles.collectionBtn}>View my textile collection here →</a>
+              <a href="/global-fabric" className={styles.collectionBtn}>View my textile collection here →</a>
             </div>
           </div>
 
@@ -366,7 +366,7 @@ export default function MeshOfCode() {
                          </li>
                       </ul>
                       <div style={{ marginTop: 24, paddingLeft: 20 }}>
-                         <a href="https://drive.google.com/file/d/1-pFfJUK8xNuG6Zd8VKHxebAU16myRcGt/view" target="_blank" rel="noopener noreferrer" className={styles.collectionBtn}>View my presentation video →</a>
+                         <a href="https://drive.google.com/file/d/1vAalWz_rElWknGuOVJXsz9sIQRPrY0BQ/view" target="_blank" rel="noopener noreferrer" className={styles.collectionBtn}>View my presentation video →</a>
                       </div>
                    </div>
                 </div>
@@ -419,11 +419,11 @@ export default function MeshOfCode() {
                       <ul className={styles.researchList}>
                          <li>Co-researcher and developer</li>
                          <li>
-                           Presented at the 2026 <a href="https://ieeexplore.ieee.org/document/11658458?denied=" target="_blank" rel="noopener noreferrer" className={styles.underlineHover}>NUS – SYNAPXE – IMDA AI Innovation Challenge</a>
+                           Presented at the 2026 <a href="https://sg-innovationchallenge.org/?fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExeDhQS1hScDdXdDhOSDFCQnNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR7ArkBxyU6tK8WfTECoD8r6xOpa40K24ZNYT_HUER5-X4gA-jBqueqqJqfBeg_aem_67DNqzuf4HggEYPy6W1vjg" target="_blank" rel="noopener noreferrer" className={styles.underlineHover}>NUS – SYNAPXE – IMDA AI Innovation Challenge</a>
                          </li>
                          <ul style={{ paddingLeft: 40, marginTop: 10, listStyleType: "circle" }}>
-                           <li><a href="https://ieeexplore.ieee.org/document/11658458?denied=" target="_blank" rel="noopener noreferrer" className={styles.underlineHover}>Presentation</a></li>
-                           <li><a href="https://ieeexplore.ieee.org/document/11658458?denied=" target="_blank" rel="noopener noreferrer" className={styles.underlineHover}>GitHub</a></li>
+                           <li><a href="https://docs.google.com/presentation/d/1qWhHZ5_k5qoKTBRrG9Q8RqMcHLIlLfEkW42P_OTDn0I/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className={styles.underlineHover}>Presentation</a></li>
+                           <li><a href="https://github.com/phuongndk0604-ops/scoliosis" target="_blank" rel="noopener noreferrer" className={styles.underlineHover}>GitHub</a></li>
                          </ul>
                       </ul>
                    </div>
@@ -516,7 +516,7 @@ export default function MeshOfCode() {
                 <CustomVideoPlayer src={VID(41)} />
              </div>
 
-             <a href="#" className={styles.collectionBtn} style={{ marginTop: 10 }}>View website →</a>
+             <a href="https://dyspneacare.com/login" className={styles.collectionBtn} style={{ marginTop: 10 }}>View website →</a>
           </div>
 
           {/* === CARE COMMUNITY === */}

@@ -1,4 +1,5 @@
 .section {
+  box-sizing: border-box;
   width: 100%;
   background-color: #111111;
   display: flex;
@@ -12,7 +13,7 @@
   position: relative;
   width: 100%;
   max-width: 1125.65px;
-  aspect-ratio: 1125.65 / 1297.28; 
+  aspect-ratio: 1125.65 / 1297.28;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,7 +26,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 2; 
+  z-index: 2;
   pointer-events: none;
 }
 
@@ -35,17 +36,17 @@
 
 .innerImageWrapper {
   position: absolute;
-  width: 32.946%; 
-  height: 43.47%; 
-  top: 23.5%; 
+  width: 32.946%;
+  height: 43.47%;
+  top: 23.5%;
   left: 53.8%;
   transform: translate(-50%, -50%);
-  z-index: 1; 
+  z-index: 1;
   pointer-events: none;
 }
 
 .innerImage {
-  object-fit: cover; 
+  object-fit: cover;
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -55,15 +56,15 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 3; 
+  z-index: 3;
   pointer-events: none;
 }
 
 .labelButton {
   position: absolute;
   pointer-events: auto;
-  background-color: #E2FF54; 
-  border: 2px solid #F230AA; 
+  background-color: #E2FF54;
+  border: 2px solid #F230AA;
   max-width: 350px;
   padding: 10px 20px;
   cursor: pointer;
@@ -75,17 +76,17 @@
   font-size: 18.75px;
   font-style: normal;
   font-weight: 500;
-  line-height: 30px; 
-  white-space: normal; 
+  line-height: 30px;
+  white-space: normal;
   word-wrap: break-word;
 }
 
 .labelButton::before {
   content: "";
   position: absolute;
-  top: -5px; 
+  top: -5px;
   left: -5px;
-  right: -5px; 
+  right: -5px;
   bottom: -5px;
   background:
     linear-gradient(#F230AA, #F230AA) top left / 8px 8px no-repeat,
@@ -101,7 +102,7 @@
   background-color: #F230AA;
   color: #E2FF54;
   border-color: #E2FF54;
-  transform: translate(-2px, -2px); 
+  transform: translate(-2px, -2px);
 }
 
 .labelButton:hover::before,
@@ -113,11 +114,14 @@
     linear-gradient(#E2FF54, #E2FF54) bottom right / 8px 8px no-repeat;
 }
 
+/* Ô chữ trắng viền hồng.
+   Desktop (> 1200px): giữ đúng vị trí thiết kế (lệch phải). */
 .bottomText {
   position: absolute;
-  bottom: 25%; 
+  bottom: 25%;
   left: 81%;
   transform: translateX(-50%);
+  box-sizing: border-box;
   background-color: white;
   border: 2px solid #F230AA;
   padding: 20px 30px;
@@ -129,9 +133,9 @@
 .bottomText::before {
   content: "";
   position: absolute;
-  top: -5px; 
+  top: -5px;
   left: -5px;
-  right: -5px; 
+  right: -5px;
   bottom: -5px;
   background:
     linear-gradient(#F230AA, #F230AA) top left / 8px 8px no-repeat,
@@ -152,40 +156,113 @@
   text-align: center;
 }
 
+/* =========================================
+   ≤ 1200px: đưa ô chữ ra GIỮA MÀN HÌNH.
+   - Container vẫn lệch trái nhưng theo % (182 / 1125.65 = 16.17%)
+     nên co giãn cùng bông hoa, không bị cắt mép trái.
+   - Tâm màn hình nằm ở 50% + 16.17% = 66.17% bề ngang container.
+   - Bề rộng ô không bao giờ vượt quá màn hình.
+========================================= */
+@media (max-width: 1200px) {
+  .container {
+    transform: translateX(-16.17%);
+  }
+
+  .bottomText {
+    left: 66.17%;
+    width: min(650px, calc(100vw - 40px));
+  }
+}
+
 @media (max-width: 1024px) {
   .labelButton {
     font-size: 14px;
     padding: 8px 16px;
+    line-height: 1.4;
   }
   .bottomText p {
     font-size: 15px;
   }
 }
 
+/* =========================================
+   ≤ 768px: container không lệch nữa, ô chữ nằm giữa container
+========================================= */
 @media (max-width: 768px) {
+  /* --off: chiều cao vùng dành cho 5 thẻ ở đầu (tăng nếu thẻ bị đè lên hoa)
+     --h:   chiều cao gốc của khu vực bông hoa theo tỉ lệ thiết kế */
+  .container {
+    transform: none;
+    --off: 150px;
+    --h: calc((100vw - 40px) * 1297.28 / 1125.65);
+    aspect-ratio: auto;
+    height: calc(var(--h) + var(--off));
+  }
+
+  /* Bông hoa và ảnh bên trong dịch xuống dưới vùng thẻ */
+  .flowerWrapper {
+    top: var(--off);
+    height: var(--h);
+  }
+
+  .innerImageWrapper {
+    top: calc(var(--off) + var(--h) * 0.235);
+    height: calc(var(--h) * 0.4347);
+  }
+
+  /* 5 thẻ xếp thành hàng ngang, tự xuống dòng, nằm trên cùng */
+  .labelsContainer {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    gap: 14px 12px;
+    padding: 8px 4px 0;
+    box-sizing: border-box;
+  }
+
+  /* !important để đè vị trí inline (top/left/transform) trong TSX */
+  .labelButton {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  .labelButton:hover,
+  .activeLabel {
+    transform: translate(-2px, -2px) !important;
+  }
+
   .labelButton {
     font-size: 11px;
     padding: 6px 12px;
     line-height: normal;
     max-width: 160px;
   }
-  
-  .labelButton::before, 
+
+  .labelButton::before,
   .bottomText::before {
-    top: -4px; left: -4px; right: -4px; bottom: -4px;
-    background-size: 6px 6px; 
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background-size: 6px 6px;
   }
-  
+
   .bottomText {
+    left: 50%;
+    bottom: calc(var(--h) * 0.09);
+    width: calc(100% - 12px);
     padding: 15px;
-    bottom: 2%;
   }
-  
+
   .bottomText p {
     font-size: 12px;
-  }
-  
-  .container {
-    transform: translateX(0); 
+    line-height: 1.5;
   }
 }

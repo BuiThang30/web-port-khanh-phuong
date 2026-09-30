@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
+  padding: 0 20px;
   height: 60px;
   max-width: 1440px;
   background-color: #FFF5D0;
@@ -27,13 +27,14 @@
   text-decoration: none;
   white-space: nowrap;
   z-index: 101;
+  font-family: "Akzidenz-Grotesk BQ Extended-1";
 }
 
 /* ================= DANH SÁCH LINK ================= */
 .links {
   display: flex;
   align-items: stretch;
-  gap: 16px;
+  gap: 10px;
   height: 60px;
   margin: 0;
   padding: 0;

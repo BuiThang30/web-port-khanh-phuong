@@ -13,9 +13,9 @@ type NavItem = {
 };
 
 const LINKS: NavItem[] = [
-  { label: "Home", href: "/" },
+  { label: "home", href: "/" },
   {
-    label: "Needle of Care",
+    label: "needle of care",
     href: "/needle-of-care",
     sub: [
       { label: "Achievements", href: "/needle-of-care#achievement" },
@@ -25,7 +25,7 @@ const LINKS: NavItem[] = [
     ],
   },
   {
-    label: "Mesh of Code",
+    label: "mesh of code",
     href: "/mesh-of-code",
     sub: [
       { label: "Achievements", href: "/mesh-of-code#achievement" },
@@ -35,7 +35,7 @@ const LINKS: NavItem[] = [
     ],
   },
   {
-    label: "Global Fabric",
+    label: "global fabric",
     href: "/global-fabric",
     minWidth: 197,
     sub: [
@@ -47,7 +47,7 @@ const LINKS: NavItem[] = [
   },
   { label: "Entrepreneurial Loom", href: "/entrepreneurial-loom" },
   {
-    label: "Creative Thread",
+    label: "creative thread",
     href: "/creative-thread",
     sub: [
       { label: "Embroidery", href: "/creative-thread#embroidery" },
@@ -74,7 +74,7 @@ export default function Nav() {
     <header className={styles.header}>
       <div className={styles.navContainer}>
         <Link className={styles.brand} href="/" onClick={handleLinkClick}>
-          Phuong Nguyen
+          PHUONG NGUYEN
         </Link>
 
         <button

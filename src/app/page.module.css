@@ -1,5 +1,32 @@
+/* =========================================================
+   GHI CHÚ RESPONSIVE
+   - --u = 1 "đơn vị thiết kế" (1px ở 1440px), tự co theo màn hình.
+   - Mọi cỡ chữ đều đặt sàn (max(...)) để không bị nhỏ xíu trên
+     tablet/mobile. Các token bên dưới được ghi đè 1 lần ở
+     breakpoint mobile, không cần sửa từng class.
+   - Breakpoints: 992px (tablet: xếp dọc timeline + footer),
+                  768px (mobile).
+========================================================= */
 .page {
   --u: calc(min(100vw, 1440px) / 1440);
+
+  /* Cỡ chữ (có sàn) */
+  --fs-body: max(12px, calc(13.5 * var(--u)));
+  --fs-small: max(12px, calc(14 * var(--u)));
+  --fs-label: max(12px, calc(14.5 * var(--u)));
+  --fs-h3: max(15px, calc(18 * var(--u)));
+  --fs-invention: max(16px, calc(22 * var(--u)));
+  --fs-about-title: max(20px, calc(27 * var(--u)));
+  --fs-title: max(24px, calc(32 * var(--u)));
+  --fs-hero-greeting: max(16px, calc(30 * var(--u)));
+  --fs-hero-name: max(48px, calc(120 * var(--u)));
+  --fs-hero-sub: max(14px, calc(22 * var(--u)));
+
+  /* Khoảng cách (có sàn) */
+  --gap-s: max(10px, calc(16 * var(--u)));
+  --gap-m: max(16px, calc(24 * var(--u)));
+  --gap-l: max(24px, calc(40 * var(--u)));
+
   width: 100%;
   overflow-x: hidden;
 }
@@ -11,9 +38,8 @@
   position: relative;
   width: 100%;
   max-width: 1440px;
-  aspect-ratio: 1440 / 703; /* thay cho height: 703px cố định */
-  margin: 0 auto;
-  margin-top: 60px;
+  aspect-ratio: 1440 / 703;
+  margin: 60px auto 0;
   overflow: hidden;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
 }
@@ -45,17 +71,19 @@
   top: 6%;
   left: 50%;
   transform: translateX(-50%);
+  width: 100%;
   display: flex;
-  padding: calc(11 * var(--u)) calc(22 * var(--u));
+  padding: calc(11 * var(--u)) 5%;
   flex-direction: column;
   align-items: center;
-  gap: calc(8 * var(--u));
+  gap: var(--gap-s);
+  box-sizing: border-box;
 }
 
 .greetingText {
   color: #F230AA;
   text-align: center;
-  font-size: calc(22 * var(--u));
+  font-size: var(--fs-hero-greeting);
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -65,24 +93,25 @@
 .nameText {
   color: #F230AA;
   text-align: center;
-  font-size: calc(45 * var(--u));
+  font-size: var(--fs-hero-name);
   font-style: normal;
   font-weight: 700;
-  line-height: calc(45 * var(--u));
+  line-height: 1;
   margin: 0;
   text-transform: uppercase;
+  max-width: 100%;
 }
 
 .subText {
   color: #F230AA;
   text-align: center;
-  font-size: calc(16 * var(--u));
+  font-size: var(--fs-hero-sub);
   font-weight: 600;
   margin: 0;
 }
 
 /* =========================================
-   TAPESTRY WRAPPER (khung 1440px cho đường cong vàng)
+   TAPESTRY WRAPPER
 ========================================= */
 .tapestryWrapper {
   position: relative;
@@ -91,10 +120,10 @@
   margin: 0 auto;
 }
 
-/* Đảm bảo SVG / canvas bên trong luôn co theo khung */
 .tapestryWrapper > * {
   max-width: 100%;
 }
+
 .tapestryWrapper svg,
 .tapestryWrapper canvas,
 .tapestryWrapper img {
@@ -124,7 +153,7 @@
 }
 
 .aboutImage {
-  width: 100%; /* trước là auto -> không co giãn đúng tỉ lệ */
+  width: 100%;
   height: auto;
   display: block;
   object-fit: contain;
@@ -135,26 +164,26 @@
   position: absolute;
   top: 45%;
   left: 8%;
-  width: calc(638 * var(--u));
-  max-width: 100%;
+  width: max(calc(638 * var(--u)), 320px);
+  max-width: 84%;
   z-index: 2;
 }
 
 .aboutTitle {
   color: #F230AA;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(27 * var(--u));
+  font-size: var(--fs-about-title);
   font-weight: 700;
-  margin-bottom: calc(20 * var(--u));
+  margin-bottom: var(--gap-m);
 }
 
 .aboutDescription {
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(13.5 * var(--u));
+  font-size: var(--fs-body);
   font-style: normal;
   font-weight: 500;
-  line-height: calc(18.75 * var(--u));
+  line-height: 1.4;
   text-align: justify;
 }
 
@@ -191,18 +220,18 @@
   position: absolute;
   top: 15%;
   right: 8%;
-  width: calc(550 * var(--u));
-  max-width: 100%;
+  width: max(calc(550 * var(--u)), 300px);
+  max-width: 84%;
   z-index: 2;
 }
 
 .colorsDescription {
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(13.5 * var(--u));
+  font-size: var(--fs-body);
   font-style: normal;
   font-weight: 500;
-  line-height: calc(18.75 * var(--u));
+  line-height: 1.4;
   text-align: justify;
 }
 
@@ -213,23 +242,24 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: calc(80 * var(--u)) 8%;
+  padding: max(48px, calc(80 * var(--u))) 8%;
   display: flex;
   justify-content: flex-end;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .collectionContent {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: calc(600 * var(--u));
+  width: max(calc(600 * var(--u)), 320px);
   max-width: 100%;
 }
 
 .imageBoxWrapper {
   position: relative;
-  margin-bottom: calc(50 * var(--u));
+  margin-bottom: var(--gap-l);
   width: 100%;
 }
 
@@ -262,14 +292,14 @@
 
 .collectionLabel {
   position: absolute;
-  bottom: calc(-20 * var(--u));
-  right: calc(-30 * var(--u));
+  bottom: max(-20px, calc(-20 * var(--u)));
+  right: max(-30px, calc(-30 * var(--u)));
   background-color: #FFF5D0;
   border: 2px solid #F230AA;
-  padding: calc(12 * var(--u)) calc(24 * var(--u));
+  padding: max(8px, calc(12 * var(--u))) max(14px, calc(24 * var(--u)));
   color: #154d3e;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(14.5 * var(--u));
+  font-size: var(--fs-label);
   font-weight: 700;
   line-height: 1.4;
   z-index: 3;
@@ -295,19 +325,19 @@
 .inventionTitle {
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(22 * var(--u));
+  font-size: var(--fs-invention);
   font-weight: 700;
   line-height: 1.4;
-  margin-bottom: calc(20 * var(--u));
+  margin-bottom: var(--gap-m);
 }
 
 .healButton {
   background: transparent;
   border: 1px solid #FFF5D0;
   color: #FFF5D0;
-  padding: calc(10 * var(--u)) calc(24 * var(--u));
+  padding: max(8px, calc(10 * var(--u))) max(18px, calc(24 * var(--u)));
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(14 * var(--u));
+  font-size: var(--fs-small);
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
@@ -316,7 +346,8 @@
   transition: all 0.2s ease;
 }
 
-.healButton:hover {
+.healButton:hover,
+.healButton:focus-visible {
   background: #FFF5D0;
   color: #111111;
 }
@@ -328,28 +359,30 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: calc(60 * var(--u)) 8% calc(100 * var(--u)) 8%;
+  padding: max(40px, calc(60 * var(--u))) 8% max(56px, calc(100 * var(--u))) 8%;
+  box-sizing: border-box;
 }
 
 .faithContainer {
-  max-width: calc(850 * var(--u));
+  width: 100%;
+  max-width: min(100%, max(calc(850 * var(--u)), 520px));
 }
 
 .faithTitle {
   color: #F230AA;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(32 * var(--u));
+  font-size: var(--fs-title);
   font-weight: 700;
-  margin-bottom: calc(30 * var(--u));
+  margin-bottom: var(--gap-l);
 }
 
 .faithText p {
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(13.5 * var(--u));
+  font-size: var(--fs-body);
   font-weight: 500;
   line-height: 1.6;
-  margin-bottom: calc(20 * var(--u));
+  margin-bottom: var(--gap-m);
   text-align: justify;
 }
 
@@ -366,7 +399,8 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  padding-bottom: calc(80 * var(--u));
+  padding-bottom: max(40px, calc(80 * var(--u)));
+  box-sizing: border-box;
 }
 
 .faithImagesContainer {
@@ -388,7 +422,7 @@
 .blueprintSection {
   width: 100%;
   background-color: #111111;
-  padding: calc(100 * var(--u)) 0;
+  padding: max(56px, calc(100 * var(--u))) 0;
   display: flex;
   justify-content: center;
 }
@@ -401,24 +435,26 @@
 }
 
 .blueprintHeader {
-  max-width: calc(650 * var(--u));
-  margin-bottom: calc(80 * var(--u));
+  box-sizing: border-box;
+  width: 100%;
+  /* nội dung rộng tối đa ~650u (sàn 480px) + 2 lề 8% */
+  max-width: calc(max(calc(650 * var(--u)), 480px) + 16%);
+  margin-bottom: max(40px, calc(80 * var(--u)));
   padding: 0 8%;
-  box-sizing: content-box;
 }
 
 .blueprintTitle {
   color: #F230AA;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(32 * var(--u));
+  font-size: var(--fs-title);
   font-weight: 700;
-  margin-bottom: calc(20 * var(--u));
+  margin-bottom: var(--gap-m);
 }
 
 .blueprintDescription {
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(13.5 * var(--u));
+  font-size: var(--fs-body);
   line-height: 1.6;
   font-weight: 500;
   text-align: justify;
@@ -427,7 +463,7 @@
 .timelineWrapper {
   display: flex;
   flex-direction: column;
-  gap: calc(80 * var(--u));
+  gap: max(40px, calc(80 * var(--u)));
 }
 
 .timelineItem {
@@ -443,53 +479,56 @@
 
 .timelineText {
   flex: 1;
-  max-width: calc(800 * var(--u));
+  min-width: 0;
+  max-width: max(calc(800 * var(--u)), 420px);
   padding: 0 8%;
+  box-sizing: border-box;
 }
 
 .timelineSchool {
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(18 * var(--u));
+  font-size: var(--fs-h3);
   font-weight: 700;
   line-height: 1.4;
-  margin-bottom: calc(12 * var(--u));
+  margin-bottom: max(8px, calc(12 * var(--u)));
   position: relative;
-  padding-left: calc(20 * var(--u));
+  padding-left: 20px;
 }
 
 .timelineSchool::before {
   content: "";
   position: absolute;
   left: 0;
-  top: calc(6 * var(--u));
-  width: calc(8 * var(--u));
-  height: calc(8 * var(--u));
+  top: 0.4em;
+  width: 8px;
+  height: 8px;
   background-color: #E2FF54;
 }
 
 .timelineQuote {
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(14 * var(--u));
+  font-size: var(--fs-small);
   font-weight: 700;
   font-style: italic;
-  margin-bottom: calc(16 * var(--u));
-  padding-left: calc(20 * var(--u));
+  margin-bottom: var(--gap-s);
+  padding-left: 20px;
 }
 
 .timelineDesc {
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(13.5 * var(--u));
+  font-size: var(--fs-body);
   font-weight: 500;
   line-height: 1.6;
-  padding-left: calc(20 * var(--u));
+  padding-left: 20px;
   text-align: justify;
 }
 
 .timelineImageWrap {
   flex: 1;
+  min-width: 0;
   display: flex;
   justify-content: flex-end;
 }
@@ -513,14 +552,12 @@
 .blueprintFooterTitle {
   color: #E2FF54;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(32 * var(--u));
+  font-size: var(--fs-title);
   font-weight: 700;
   padding: 0 8%;
 }
 
-/* =========================================
-   MARGIN ÂM RIÊNG CHO TỪNG MỐC (scale theo --u)
-========================================= */
+/* Margin âm riêng cho từng mốc (chỉ dùng ở desktop, scale theo --u) */
 .item1 { margin-top: calc(-280 * var(--u)); }
 .item2 { margin-top: calc(-230 * var(--u)); }
 .item3 { margin-top: calc(-100 * var(--u)); }
@@ -533,7 +570,7 @@
 .footerSection {
   width: 100%;
   background-color: #111111;
-  padding-top: calc(60 * var(--u));
+  padding-top: max(32px, calc(60 * var(--u)));
   overflow: hidden;
 }
 
@@ -561,64 +598,76 @@
   position: absolute;
   left: 5%;
   top: 60%;
-  width: calc(420 * var(--u));
-  max-width: 100%;
+  width: max(calc(420 * var(--u)), 230px);
+  max-width: 90%;
   z-index: 2;
 }
 
 .contactTitle {
   color: #F230AA;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(32 * var(--u));
+  font-size: var(--fs-title);
   font-weight: 700;
-  margin-bottom: calc(40 * var(--u));
+  margin-bottom: var(--gap-l);
 }
 
 .contactBlock {
   display: flex;
   flex-direction: column;
-  gap: calc(16 * var(--u));
-  margin: calc(24 * var(--u)) 0;
+  gap: var(--gap-s);
+  margin: var(--gap-m) 0;
 }
 
 .contactItem {
   display: flex;
   align-items: center;
-  gap: calc(16 * var(--u));
+  gap: var(--gap-s);
   color: #FFF5D0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: calc(14 * var(--u));
+  font-size: var(--fs-small);
   font-weight: 500;
   text-decoration: none;
   width: fit-content;
+  max-width: 100%;
   cursor: pointer;
   padding: 6px 10px;
   margin: -6px -10px;
   border-radius: 8px;
   border: 1px solid transparent;
+  overflow-wrap: anywhere;
   transition: color 0.2s ease, transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .contactItem svg {
   color: #FFF5D0;
   flex-shrink: 0;
-  width: calc(20 * var(--u));
-  height: calc(20 * var(--u));
+  width: max(16px, calc(20 * var(--u)));
+  height: max(16px, calc(20 * var(--u)));
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.contactItem:hover,
 .contactItem:focus-visible {
-  color: #111111 !important;
-  background-color: #E2FF54 !important;
-  border-color: #E2FF54 !important;
-  transform: translateX(4px);
+  color: #111111;
+  background-color: #E2FF54;
+  border-color: #E2FF54;
 }
 
-.contactItem:hover svg,
 .contactItem:focus-visible svg {
-  color: #111111 !important;
-  transform: scale(1.15);
+  color: #111111;
+}
+
+/* Chỉ áp hiệu ứng hover trên thiết bị có chuột (tránh "dính" hover trên cảm ứng) */
+@media (hover: hover) {
+  .contactItem:hover {
+    color: #111111;
+    background-color: #E2FF54;
+    border-color: #E2FF54;
+    transform: translateX(4px);
+  }
+  .contactItem:hover svg {
+    color: #111111;
+    transform: scale(1.15);
+  }
 }
 
 .contactDivider {
@@ -629,68 +678,139 @@
 }
 
 /* =========================================
-   RESPONSIVE (chỉ đổi bố cục khi màn hình thật sự nhỏ,
-   còn từ 769px trở lên mọi thứ đã tự scale bằng --u)
+   TABLET (≤ 992px): xếp dọc timeline và footer
 ========================================= */
 @media (max-width: 992px) {
-  .timelineItem, .timelineItem.reverse {
+  /* Timeline */
+  .timelineWrapper {
+    gap: 56px;
+  }
+  .timelineItem,
+  .timelineItem.reverse {
     flex-direction: column;
-    gap: 40px;
+    align-items: stretch;
+    gap: 28px;
   }
   .timelineText {
+    flex: none;
+    width: 100%;
     max-width: 100%;
-    padding: 0 5%;
+    padding: 0 6%;
   }
-  .timelineImageWrap, .timelineItem.reverse .timelineImageWrap {
+  .timelineText:empty {
+    display: none;
+  }
+  .timelineImageWrap,
+  .timelineItem.reverse .timelineImageWrap {
+    flex: none;
+    width: 100%;
     justify-content: center;
-    padding: 0 5%;
+    padding: 0 6%;
+    box-sizing: border-box;
   }
-  .timelineImg, .timelineItem.reverse .timelineImg {
-    object-position: center;
+  .timelineImg,
+  .timelineItem.reverse .timelineImg {
     max-width: 700px;
+    object-position: center;
   }
-  /* Khi xếp dọc thì bỏ margin âm để các mục không đè nhau */
+  /* Xếp dọc thì bỏ margin âm để các mục không đè nhau */
   .item1, .item2, .item3, .item4, .item5 {
     margin-top: 0;
   }
+
+  /* Footer: đồ họa ở trên, thông tin liên hệ ở dưới */
+  .footerSection {
+    padding-bottom: 56px;
+  }
+  .footerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .contactInfo {
+    position: static;
+    width: 100%;
+    max-width: 520px;
+    padding: 0 6%;
+    box-sizing: border-box;
+  }
+  .contactTitle {
+    margin-bottom: 24px;
+  }
+  .contactItem {
+    min-height: 44px; /* vùng chạm đủ lớn */
+  }
 }
 
+/* =========================================
+   MOBILE (≤ 768px)
+========================================= */
 @media (max-width: 768px) {
-  /* Trên mobile dùng cỡ chữ px cố định cho dễ đọc */
+  /* Ghi đè token 1 lần: cỡ chữ cố định, dễ đọc */
+  .page {
+    --fs-body: 13px;
+    --fs-small: 13px;
+    --fs-label: 13px;
+    --fs-h3: 16px;
+    --fs-invention: 18px;
+    --fs-about-title: 22px;
+    --fs-title: 24px;
+    --fs-hero-greeting: 18px;
+    --fs-hero-name: clamp(40px, 15vw, 64px);
+    --fs-hero-sub: 15px;
+    --gap-s: 12px;
+    --gap-m: 20px;
+    --gap-l: 28px;
+  }
+
+  /* Hero: khung cao hơn để video không bị dẹt */
+  .container {
+    aspect-ratio: 4 / 5;
+    margin-top: 56px;
+  }
+  .textContainer {
+    top: 8%;
+  }
+
+  /* About: chữ nằm trên, ảnh nằm dưới */
+  .aboutSection {
+    flex-direction: column-reverse;
+    margin-top: -50px;
+  }
   .aboutTextContent {
     position: relative;
     top: 0;
     left: 0;
     width: 100%;
+    max-width: 100%;
     padding: 40px 5%;
+    box-sizing: border-box;
   }
-  .aboutSection {
-    flex-direction: column-reverse;
-    margin-top: -50px;
+  .aboutDescription,
+  .colorsDescription,
+  .faithText p,
+  .blueprintDescription,
+  .timelineDesc {
+    line-height: 1.5;
   }
-  .aboutTitle, .faithTitle, .blueprintTitle, .blueprintFooterTitle {
-    font-size: 24px;
-  }
-  .aboutDescription, .faithText p {
-    font-size: 12px;
-    line-height: 18px;
-  }
-  .colorsDescription, .blueprintDescription, .timelineDesc {
-    font-size: 12px;
-    line-height: 18px;
+
+  /* Colors */
+  .colorsSection {
+    flex-direction: column;
   }
   .colorsTextContent {
     position: relative;
     top: 0;
     right: 0;
     width: 100%;
+    max-width: 100%;
     padding: 40px 5%;
+    box-sizing: border-box;
   }
-  .colorsSection {
-    flex-direction: column;
-  }
+
+  /* Collection */
   .collectionSection {
-    padding: 60px 5%;
+    padding: 56px 7%;
     justify-content: center;
   }
   .collectionContent {
@@ -699,52 +819,47 @@
   .collectionLabel {
     right: 0;
     bottom: -30px;
-    font-size: 13px;
   }
-  .inventionTitle { font-size: 18px; }
-  .healButton { font-size: 13px; padding: 10px 20px; }
+  .imageBoxWrapper {
+    margin-bottom: 52px; /* chừa chỗ cho nhãn đang thò xuống dưới ảnh */
+  }
+  .healButton {
+    min-height: 44px;
+  }
+
+  /* Faith */
   .faithSection {
     padding: 40px 5%;
   }
-  .faithImagesSection {
-    padding-bottom: 50px;
-  }
-  .blueprintSection {
-    padding: 60px 0;
-  }
-  .blueprintHeader, .blueprintFooterTitle {
-    padding: 0 5%;
-  }
-  .timelineSchool {
-    font-size: 16px;
-    padding-left: 20px;
-  }
-  .timelineSchool::before {
-    width: 8px;
-    height: 8px;
-    top: 6px;
-  }
-  .timelineQuote { font-size: 13px; padding-left: 20px; }
-  .timelineDesc { padding-left: 20px; }
-
-  /* Footer */
-  .footerSvgImage {
+  .faithContainer {
     max-width: 100%;
   }
+  .faithImagesSection {
+    padding-bottom: 40px;
+  }
+
+  /* Blueprint */
+  .blueprintSection {
+    padding: 56px 0;
+  }
+  .blueprintHeader {
+    max-width: 100%;
+    padding: 0 5%;
+  }
+  .blueprintFooterTitle {
+    padding: 0 5%;
+    margin-top: 40px;
+  }
+  .timelineText,
+  .timelineImageWrap,
+  .timelineItem.reverse .timelineImageWrap {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  /* Footer */
   .contactInfo {
-    left: 6%;
-    top: 54%;
-    width: 260px;
-  }
-  .contactTitle {
-    font-size: 22px;
-    margin-bottom: 24px;
-  }
-  .contactItem {
-    font-size: 12px;
-  }
-  .contactItem svg {
-    width: 18px;
-    height: 18px;
+    padding: 0 5%;
+    max-width: 100%;
   }
 }

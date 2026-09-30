@@ -178,6 +178,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  scroll-margin-top: 120px
 }
 .sectionTitle {
   color: #f230aa;

@@ -497,7 +497,7 @@ export default function NeedleOfCare() {
                          <li>Presented at the Dengue Slayers Challenge 2025</li>
                       </ul>
                       <div style={{ marginTop: 24, paddingLeft: 20 }}>
-                         <a href="#" className={styles.collectionBtn}>View my presentation →</a>
+                         <a href="https://drive.google.com/file/d/1iTowKLB-4ETFWSSwcdf9f_A5nWsBfqjP/view" className={styles.collectionBtn} target="_blank" rel="noopener noreferrer">View my presentation →</a>
                       </div>
                    </div>
                 </div>
@@ -554,7 +554,7 @@ export default function NeedleOfCare() {
               Migrant Health Matters Project
             </div>
             <a 
-              href="https://instagram.com" 
+              href="https://www.instagram.com/projectmhm" 
               target="_blank" 
               rel="noopener noreferrer" 
               className={styles.instagramLink}
@@ -637,7 +637,7 @@ export default function NeedleOfCare() {
       </section>
 
       {/* ================= HEAL HEATH ================= */}
-      <section className={styles.sectionBarSub}>
+      <section id="heal-heath" className={styles.sectionBarSub}>
         <h2 className={styles.sectionTitle} style={{ color: "#111" }}>Heal Heath</h2>
       </section>
 
@@ -655,7 +655,7 @@ export default function NeedleOfCare() {
 
           <div className={styles.centerBlock} style={{ marginBottom: 50 }}>
             <a 
-              href="#" 
+              href="https://www.healhealthsoulyou.com/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className={styles.collectionBtn}
@@ -697,7 +697,7 @@ export default function NeedleOfCare() {
           {/* Chân trang (Footer links) */}
           <div className={styles.centerBlock} style={{ gap: 12, marginTop: 80, marginBottom: 80 }}>
             <a 
-              href="https://instagram.com" 
+              href="https://www.instagram.com/healhealthsoulyou/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className={styles.instagramLink}
@@ -719,13 +719,18 @@ export default function NeedleOfCare() {
               <span>healhealthsoulyou</span>
             </a>
 
-            <div style={{ display: "flex", alignItems: "center", gap: 8, color: "#fff5d0", fontSize: "14px", fontFamily: 'var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif)' }}>
+            <a 
+              href="https://www.youtube.com/watch?v=jEbn6zs64T8&t=4s"
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ display: "flex", alignItems: "center", gap: 8, color: "#fff5d0", fontSize: "14px", fontFamily: 'var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif)', textDecoration: "none" }}
+            >
               <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path>
                 <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor"></polygon>
               </svg>
               <span>Healing Garden - Outbound Journey Series</span>
-            </div>
+            </a>
           </div>
 
           {/* ================= SERIES (HOVER ĐỂ HIỆN NỘI DUNG BÊN DƯỚI) ================= */}
@@ -844,7 +849,7 @@ export default function NeedleOfCare() {
         <h2 className={styles.sectionTitle}>
           <span>Internship</span>
           <span className={styles.barDot}>·</span>
-          <Link href="/internship/genscript" className={styles.barLink}>
+          <Link href="https://www.genscript.com/singapore-manufacturing-facility.html" className={styles.barLink} target="_blank" rel="noopener noreferrer">
             GenScript Biotechnology Cooperation
           </Link>
         </h2>
@@ -856,13 +861,13 @@ export default function NeedleOfCare() {
           {/* ---------- GenScript ---------- */}
           <div className={styles.internHead}>
             <h3 className={styles.internCompany}>
-              <Link href="/internship/genscript" className={styles.linkLime}>
+              <Link href="https://www.genscript.com/singapore-manufacturing-facility.html" className={styles.linkLime} target="_blank" rel="noopener noreferrer">
                 GenScript Biotechnology Cooperation
               </Link>
             </h3>
-            <Link href="/internship/genscript/molecular-biology" className={styles.linkCream}>
+            <h3 className={styles.internCompany}>
               Molecular biology
-            </Link>
+            </h3>
           </div>
 
           <div className={styles.internGridFour}>
@@ -891,11 +896,11 @@ export default function NeedleOfCare() {
           {/* ---------- US Pharma USA ---------- */}
           <div className={styles.internHead} style={{ marginTop: 100 }}>
             <h3 className={styles.internCompany}>
-              <Link href="/internship/us-pharma-usa" className={styles.linkLime}>
+              <Link href="https://uspharma.vn/index.aspx?sLang=en-US" className={styles.linkLime} target="_blank" rel="noopener noreferrer">
                 US Pharma USA Joint Stock Company
               </Link>
             </h3>
-            <Link href="/internship/us-pharma-usa/report" className={styles.linkCream}>
+            <Link href="https://drive.google.com/file/d/17f4YQx90uJFvTgSB-y-GR3y_GGRopCms/view?usp=sharing" className={styles.linkCream} target="_blank" rel="noopener noreferrer">
               Internship Report
             </Link>
           </div>
@@ -936,7 +941,7 @@ export default function NeedleOfCare() {
           {/* ---------- University of Science's Stem Cell Institute ---------- */}
           <div className={styles.internHead} style={{ marginTop: 160 }}>
             <h3 className={styles.internCompany}>
-              <Link href="/internship/stem-cell-institute" className={styles.linkLime}>
+              <Link href="https://sci.edu.vn/home/en/" className={styles.linkLime} target="_blank" rel="noopener noreferrer">
                 University of Science&apos;s Stem Cell Institute
               </Link>
             </h3>
@@ -949,7 +954,7 @@ export default function NeedleOfCare() {
                 <Image src={IMG(56)} alt="Sci-Tech Update 2025" fill className={styles.fillImg} sizes="(max-width: 768px) 90vw, 20vw" />
               </div>
               <figcaption className={styles.internCaption}>
-                <Link href="/internship/stem-cell-institute/sci-tech-update-2025" className={styles.linkCreamSmall}>
+                <Link href="https://techupdate.sci.edu.vn/2025/" className={styles.linkCreamSmall} target="_blank" rel="noopener noreferrer">
                   Sci-Tech Update 2025
                 </Link>
               </figcaption>
