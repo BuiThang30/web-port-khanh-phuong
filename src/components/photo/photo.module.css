@@ -2,8 +2,11 @@
   position: relative;
   width: 100%;
   min-width: 0;
+  max-width: 100%;
   overflow: hidden;
   border-radius: 4px;
+  isolation: isolate;
+  background-color: #1a1a1a;
 }
 
 .image {

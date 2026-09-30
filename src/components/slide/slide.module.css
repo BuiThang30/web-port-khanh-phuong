@@ -1,8 +1,14 @@
+/* --slide-scale: hệ số thu nhỏ theo màn hình (1 = kích thước gốc).
+   Dùng biến riêng này để không bị đè bởi --slide-image-height / --slide-gap
+   nếu TSX đang set chúng trực tiếp (inline). */
 .galleryViewport {
+  --slide-scale: 1;
   width: 100%;
+  max-width: 100%;
   overflow: hidden;
   background-color: #111111;
   padding: 24px 0;
+  box-sizing: border-box;
 }
 
 .galleryTrack {
@@ -20,22 +26,29 @@
   animation: slide-scroll-right var(--slide-duration, 28s) linear infinite;
 }
 
-.pauseOnHover:hover .galleryTrack {
+/* Tạm dừng: chuột thì hover, cảm ứng thì giữ tay */
+@media (hover: hover) {
+  .pauseOnHover:hover .galleryTrack {
+    animation-play-state: paused;
+  }
+}
+
+.pauseOnHover:active .galleryTrack {
   animation-play-state: paused;
 }
 
 .galleryItem {
   flex-shrink: 0;
-  margin: 0 var(--slide-gap, 16px) 0 0;
+  margin: 0 calc(var(--slide-gap, 16px) * var(--slide-scale)) 0 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  gap: calc(10px * var(--slide-scale));
 }
 
 .imageWrap {
   position: relative;
-  height: var(--slide-image-height, 260px);
+  height: calc(var(--slide-image-height, 260px) * var(--slide-scale));
   flex-shrink: 0;
 }
 
@@ -77,15 +90,41 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .galleryTrack {
-    animation: none;
-    overflow-x: auto;
+/* Tablet */
+@media (max-width: 1024px) {
+  .galleryViewport {
+    --slide-scale: 0.85;
   }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
   .galleryViewport {
+    --slide-scale: 0.7;
     padding: 16px 0;
+  }
+
+  .galleryCaption {
+    font-size: 12px;
+  }
+}
+
+/* Mobile nhỏ */
+@media (max-width: 480px) {
+  .galleryViewport {
+    --slide-scale: 0.6;
+  }
+}
+
+/* Người dùng tắt chuyển động: dừng chạy và cho vuốt tay để xem hết ảnh */
+@media (prefers-reduced-motion: reduce) {
+  .directionLeft,
+  .directionRight {
+    animation: none;
+  }
+
+  .galleryViewport {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }

@@ -1,60 +1,91 @@
 .viewer {
   position: relative;
   width: 100%;
+  max-width: 100%;
 }
 
 .track {
   display: flex;
-  gap: 40px; 
+  gap: clamp(16px, 4vw, 40px); /* 40px ở desktop, thu nhỏ dần trên mobile */
   overflow-x: auto;
-  scrollbar-width: none; 
-  scroll-snap-type: x mandatory; 
-  scroll-behavior: smooth; /* Tối ưu hóa chuyển động cuộn siêu mượt của trình duyệt */
-  padding: 0 8%; 
+  overscroll-behavior-x: contain; /* cuộn hết carousel không kéo theo cả trang */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0 8%;
+  scroll-padding: 0 8%; /* thẻ dừng lại đúng vị trí lề, không dính sát mép */
 }
 
 .track::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 .track > * {
   flex: 0 0 auto;
-  scroll-snap-align: start; 
+  max-width: 100%; /* thẻ không bao giờ rộng hơn khung nhìn */
+  scroll-snap-align: start;
 }
 
 .next {
   position: absolute;
-  top: 160px;
-  right: 24px;
+  top: clamp(110px, 11.1vw, 160px); /* 160px ở 1440px, nhỏ dần khi màn hẹp */
+  right: clamp(12px, 1.7vw, 24px);
   width: 56px;
   height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: #fff5d0; /* Nền mặc định: Vàng nhạt */
-  color: #f230aa;            /* Icon mặc định: Hồng */
+  background-color: #fff5d0;
+  color: #f230aa;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
   z-index: 10;
   cursor: pointer;
   border: none;
+  padding: 0;
+  touch-action: manipulation; /* bỏ độ trễ chạm 300ms */
+  -webkit-tap-highlight-color: transparent;
 }
 
-.next:hover {
-  transform: scale(1.1);
-  background-color: #f230aa; /* Nền Hover: Hồng */
-  color: #fff5d0;            /* Icon Hover: Vàng nhạt */
+.next:focus-visible {
+  outline: 3px solid #ccf656;
+  outline-offset: 3px;
+}
+
+/* Chạm thì phản hồi ngay; hover chỉ áp dụng trên thiết bị có chuột */
+.next:active {
+  transform: scale(0.94);
+}
+
+@media (hover: hover) {
+  .next:hover {
+    transform: scale(1.1);
+    background-color: #f230aa;
+    color: #fff5d0;
+  }
 }
 
 @media (max-width: 768px) {
   .track {
     padding: 0 6%;
+    scroll-padding: 0 6%;
   }
+
   .next {
     top: 110px;
-    width: 44px;
+    width: 44px; /* vẫn đủ vùng chạm 44px */
     height: 44px;
     right: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    scroll-behavior: auto;
+  }
+  .next {
+    transition: none;
   }
 }
