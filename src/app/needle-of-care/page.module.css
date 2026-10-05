@@ -290,23 +290,24 @@
 }
 .researchTitle {
   color: #ccf656;
-  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-family: "Akzidenz-Grotesk BQ Extended-1";
   font-size: 26px; 
   font-weight: 700; 
-  margin-bottom: 16px;
+  line-height: 1.25;
+  margin-bottom: 6px;
 }
 .researchList {
   color: #fff5d0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
   font-size: 22.5px; 
   font-weight: 500;
-  line-height: 1.8;
+  line-height: 1.5;
   list-style-type: disc;
   padding-left: 20px;
-  margin-top: 20px;
+  margin-top: 0;
 }
 .researchList li {
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 .collectionBtn {
   display: inline-flex;

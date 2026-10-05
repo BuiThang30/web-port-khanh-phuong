@@ -42,6 +42,7 @@
   text-align: center;
 }
 
+/* ================= HERO ================= */
 .heroSection {
   position: relative;
   width: 100%;
@@ -60,10 +61,12 @@
   z-index: 0;
 }
 
+/* Lớp phủ nhẹ hơn để ảnh nền rõ hơn (trước: 0.72).
+   Muốn rõ thêm: giảm số 0.38; muốn chữ dễ đọc hơn: tăng lên. */
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(83, 82, 82, 0.72);
+  background: rgba(17, 17, 17, 0.38);
   z-index: 1;
 }
 
@@ -77,6 +80,11 @@
 .heroText .bodyText {
   max-width: 820px;
   margin: 0 auto;
+  font-weight: 400;
+  /* Bóng chữ giúp chữ vẫn rõ khi nền sáng hơn */
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.85),
+    0 0 14px rgba(0, 0, 0, 0.6);
 }
 
 .section {
@@ -363,6 +371,10 @@
   }
   .heroText {
     padding: 60px 6%;
+  }
+  /* Màn hình nhỏ chữ chiếm nhiều diện tích hơn nên phủ đậm hơn một chút */
+  .heroOverlay {
+    background: rgba(17, 17, 17, 0.5);
   }
   .sectionTitle {
     font-size: 24px;

@@ -59,9 +59,10 @@ const PlayIcon = () => (
 );
 
 // Ảnh thumbnail có nút Play, bấm vào mở link sang trang khác
-const VideoLinkBox = ({ src, link, alt }: { src: string, link: string, alt: string }) => (
+// aspectRatio: tỉ lệ khung (mặc định 16 / 9)
+const VideoLinkBox = ({ src, link, alt, aspectRatio = "16 / 9" }: { src: string, link: string, alt: string, aspectRatio?: string }) => (
   <a href={link} target="_blank" rel="noopener noreferrer" className={styles.videoLinkWrapper}>
-    <div className={styles.imgBox} style={{ aspectRatio: "16 / 9" }}>
+    <div className={styles.imgBox} style={{ aspectRatio }}>
       <Image src={src} alt={alt} fill className={styles.fillImg} sizes="(max-width: 768px) 100vw, 50vw" />
       <div className={styles.playButtonOverlay}>
         <PlayIcon />
@@ -273,7 +274,18 @@ export default function CreativeThread() {
 
         <div className={styles.twoCol} style={{ alignItems: "center" }}>
           <div className={styles.col}>
-            <VideoLinkBox src="/image/creative-thread-video-2.png" link="https://phuongndk0604.wixsite.com/khanhphuongnguyend-1/hobbies" alt="Vlog Thumbnail 2" />
+            {/* Ảnh tĩnh 9:16: không có nút play, không chuyển trang */}
+            <div className={styles.portraitWrap}>
+              <div className={styles.imgBox} style={{ aspectRatio: "9 / 16" }}>
+                <Image
+                  src="/image/creative-thread-video-2.png"
+                  alt="Singapore Youth Festival 2023 certificate"
+                  fill
+                  className={styles.fillImg}
+                  sizes="(max-width: 768px) 100vw, 360px"
+                />
+              </div>
+            </div>
           </div>
           <div className={styles.col}>
             <div className={styles.bodyText}>
