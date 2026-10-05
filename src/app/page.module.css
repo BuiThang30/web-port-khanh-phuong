@@ -208,8 +208,10 @@
   justify-content: flex-start;
 }
 
+/* Thu nhỏ ảnh để đường cong xanh không đè lên đoạn chữ.
+   Nếu vẫn chạm chữ: giảm xuống 65%. Muốn ảnh to hơn: tăng lên (đừng quá ~75%). */
 .colorsImage {
-  width: 100%;
+  width: 72%;
   height: auto;
   display: block;
   object-fit: contain;
@@ -797,6 +799,9 @@
   /* Colors */
   .colorsSection {
     flex-direction: column;
+  }
+  .colorsImage {
+    width: 100%; /* mobile xếp dọc nên ảnh vẫn full chiều ngang */
   }
   .colorsTextContent {
     position: relative;

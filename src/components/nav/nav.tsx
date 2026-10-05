@@ -8,14 +8,13 @@ type SubLink = { label: string; href: string };
 type NavItem = {
   label: string;
   href: string;
-  minWidth?: number;
   sub?: SubLink[];
 };
 
 const LINKS: NavItem[] = [
-  { label: "home", href: "/" },
+  { label: "Home", href: "/" },
   {
-    label: "needle of care",
+    label: "Needle of care",
     href: "/needle-of-care",
     sub: [
       { label: "Achievements", href: "/needle-of-care#achievement" },
@@ -25,7 +24,7 @@ const LINKS: NavItem[] = [
     ],
   },
   {
-    label: "mesh of code",
+    label: "Mesh of code",
     href: "/mesh-of-code",
     sub: [
       { label: "Achievements", href: "/mesh-of-code#achievement" },
@@ -35,9 +34,8 @@ const LINKS: NavItem[] = [
     ],
   },
   {
-    label: "global fabric",
+    label: "Global fabric",
     href: "/global-fabric",
-    minWidth: 197,
     sub: [
       { label: "Model United Nations", href: "/global-fabric#model-united-nations" },
       { label: "International Science Youth Forum", href: "/global-fabric#international-science-youth-forum" },
@@ -45,9 +43,9 @@ const LINKS: NavItem[] = [
       { label: "Community Service", href: "/global-fabric#community-service" },
     ],
   },
-  { label: "entrepreneurial loom", href: "/entrepreneurial-loom" },
+  { label: "Entrepreneurial loom", href: "/entrepreneurial-loom" },
   {
-    label: "creative thread",
+    label: "Creative thread",
     href: "/creative-thread",
     sub: [
       { label: "Embroidery", href: "/creative-thread#embroidery" },
@@ -87,27 +85,19 @@ export default function Nav() {
         </button>
 
         <nav className={`${styles.links} ${isOpen ? styles.active : ""}`} aria-label="Main">
-          {LINKS.map(({ label, href, minWidth, sub }) => (
-            <div
-              key={href}
-              className={styles.item}
-              style={minWidth ? { minWidth } : undefined}
-            >
-              <Link
-                href={href}
-                className={styles.link}
-                onClick={handleLinkClick}
-              >
+          {LINKS.map(({ label, href, sub }) => (
+            <div key={href} className={styles.item}>
+              <Link href={href} className={styles.link} onClick={handleLinkClick}>
                 {label}
               </Link>
 
               {sub && (
                 <div className={styles.dropdown}>
                   {sub.map((s) => (
-                    <Link 
-                      key={s.href} 
-                      href={s.href} 
-                      className={styles.subLink} 
+                    <Link
+                      key={s.href}
+                      href={s.href}
+                      className={styles.subLink}
                       onClick={handleLinkClick}
                     >
                       {s.label}

@@ -338,10 +338,10 @@ export default function NeedleOfCare() {
                <div className={styles.imgBox} style={{ aspectRatio: "4/3", width: "100%", maxWidth: "800px", margin: "0 auto 20px" }}>
                   <Image src={IMG(17)} alt="Practical experience at Gardens By The Bay" fill className={styles.fillImg} sizes="(max-width: 1024px) 100vw, 800px" />
                </div>
-               <p className={styles.captionTextLeft} style={{ textAlign: "center", color: "#fff5d0", fontWeight: 700, marginBottom: 40, maxWidth: "600px", margin: "0 auto 40px" }}>
+               <p className={styles.captionTextLeft} style={{ textAlign: "center", color: "#fff5d0", fontWeight: 700, marginBottom: 40, maxWidth: "700px", margin: "0 auto 40px" }}>
                   Practical experience at Gardens By The Bay at the 2024 Singapore Junior Biology Olympiad
                </p>
-               <div className={styles.bodyTextCentered} style={{ maxWidth: "900px", margin: "0 auto" }}>
+               <div className={styles.bodyTextCentered} style={{ maxWidth: "920px", margin: "0 auto", textAlign: "justify" }}>
                   <p>And miraculously, I stepped foot in the laboratory of Gardens by the Bay during the 2024 Singapore Junior Biology Olympiad. There, I analyzed how coastal mangroves serve dual purposes: acting as a physical shield against rising sea levels while producing unique bioactive secondary metabolites with broad therapeutic properties. Biology remains boundless because nature transcends geopolitical lines. I wish to go forth, explore its vastness and bridge indigenous field knowledge with clinical biopharming research to innovate scalable therapeutics</p>
                </div>
             </div>

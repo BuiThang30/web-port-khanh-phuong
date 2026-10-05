@@ -1,12 +1,14 @@
 .viewer {
   position: relative;
   width: 100%;
-  max-width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .track {
   display: flex;
-  gap: clamp(16px, 4vw, 40px); /* 40px ở desktop, thu nhỏ dần trên mobile */
+  gap: clamp(16px, 4vw, 40px);
   overflow-x: auto;
   overscroll-behavior-x: contain; /* cuộn hết carousel không kéo theo cả trang */
   -webkit-overflow-scrolling: touch;
@@ -14,7 +16,7 @@
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   padding: 0 8%;
-  scroll-padding: 0 8%; /* thẻ dừng lại đúng vị trí lề, không dính sát mép */
+  scroll-padding: 0;
 }
 
 .track::-webkit-scrollbar {

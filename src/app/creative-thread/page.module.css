@@ -30,7 +30,7 @@
   font-weight: 500;
   line-height: 1.5;
   text-align: center;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -51,7 +51,7 @@
 
 .sectionTitle {
   color: #f230aa;
-  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-family: "Akzidenz-Grotesk BQ Extended-1";
   font-size: 36px;
   font-weight: 700;
   text-transform: uppercase;
@@ -111,7 +111,7 @@
   object-fit: cover;
 }
 
-/* Video MP4 phủ kín khung 16:9 */
+/* Video MP4 phủ kín khung (khung đã đặt đúng tỉ lệ của video) */
 .fillVideo {
   position: absolute;
   inset: 0;
@@ -340,6 +340,19 @@
   min-width: 0;
 }
 
+/* Video dọc gần vuông (Archery): giới hạn chiều rộng, căn giữa trong cột */
+.sportVideoWrap {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+/* Hiện đủ khung hình, không cắt */
+.sportVideoWrap .fillVideo {
+  object-fit: contain;
+  background-color: #000;
+}
+
 .sportTopImagesContainer {
   display: flex;
   gap: 16px;
@@ -447,4 +460,5 @@
   .playButtonOverlay { width: 50px; height: 50px; }
   .playButtonOverlay svg { width: 24px; height: 24px; }
   .badgeImageFloat { width: 100%; max-width: 250px; }
+  .sportVideoWrap { max-width: 100%; }
 }

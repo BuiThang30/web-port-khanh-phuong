@@ -27,7 +27,7 @@
   font-size: 13.5px;
   font-weight: 500;
   line-height: 1.6;
-  text-align: left;
+  text-align: justify;
 }
 .text p + p {
   margin-top: 18px;
@@ -182,7 +182,7 @@
 }
 .sectionTitle {
   color: #f230aa;
-  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-family: "Akzidenz-Grotesk BQ Extended-1";
   font-size: 36px;
   font-weight: 700;
   margin: 0;
@@ -204,6 +204,7 @@
   line-height: 1.6;
   text-align: justify;
 }
+/* Đoạn văn canh đều hai bên (không còn ép dòng cuối vào giữa) */
 .bodyTextCentered {
   color: #fff5d0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
@@ -211,12 +212,12 @@
   font-weight: 500;
   line-height: 1.6;
   text-align: justify;
-  text-align-last: center;
 }
 .bodyTextCentered p + p { margin-top: 18px; }
 
 /* ================= RESEARCH CARD ================= */
 .researchCardAdvanced {
+  --overhang: 34px; /* phần ảnh chứng nhận lòi ra trên/dưới thanh xám */
   position: relative;
   width: 100%;
   margin-top: 100px;
@@ -224,7 +225,7 @@
 }
 .researchTopWrapper {
   position: relative;
-  margin-bottom: 80px;
+  margin-bottom: 64px;
 }
 .grayBgFullWidth {
   position: absolute;
@@ -240,37 +241,45 @@
   z-index: 1;
 }
 
+/* Thanh xám gọn: padding trên/dưới nhỏ, có chiều cao tối thiểu */
 .researchSplitAdvanced {
   display: flex;
-  gap: 60px;
+  gap: 24px;
   align-items: center; 
   position: relative;
   z-index: 1;
-  padding: 60px 0; 
+  padding: 24px 0;
+  min-height: 300px;
 }
 
 .researchImgColSmall {
-  flex: 0 0 35%; 
+  flex: 0 0 26%; 
+  position: relative;
+  align-self: stretch; /* cao đúng bằng thanh xám */
   display: flex;
   flex-direction: column;
 }
 
+/* Ảnh cao hơn thanh xám: lòi ra trên và dưới --overhang, có bóng nổi 3D */
 .paperImgBoxSmall {
-  position: relative;
-  width: 100%;
-  height: 400px; 
-  margin-top: -60px; 
-  margin-bottom: -60px; 
-  background-color: #fff; 
-  box-shadow: 5px 5px 25px rgba(0,0,0,0.6); 
-  border-radius: 4px;
-  overflow: hidden;
-  padding: 15px; 
+  position: absolute;
+  top: calc(-1 * var(--overhang));
+  bottom: calc(-1 * var(--overhang));
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
 }
 .paperImgBoxSmall img {
   object-fit: contain !important; 
-  transform: scale(0.9); 
-  transform-origin: center;
+  background-color: transparent !important; /* đè style inline backgroundColor "#fff" trong TSX */
+  filter:
+    drop-shadow(0 22px 26px rgba(0, 0, 0, 0.7))
+    drop-shadow(0 6px 8px rgba(0, 0, 0, 0.5));
 }
 
 .researchTextCol {
@@ -282,7 +291,7 @@
 .researchTitle {
   color: #ccf656;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 30px; 
+  font-size: 26px; 
   font-weight: 700; 
   margin-bottom: 16px;
 }
@@ -418,13 +427,9 @@
   width: 100%;
   max-width: 1000px;
   margin: 120px auto 0;
-  background-color: #d1d5db; 
 }
 .videoTitleBox {
-  position: absolute;
-  top: 45px; 
-  left: 20px; 
-  z-index: 10; 
+  margin-bottom: 20px; 
 }
 .videoPlayerBox {
   width: 100%;
@@ -840,7 +845,6 @@
   font-weight: 500;
   line-height: 1.6;
   text-align: justify;
-  text-align-last: center;
 }
 
 /* ================= INTERNSHIP: video + Stem Cell ================= */
@@ -897,9 +901,19 @@
   }
   .rowImgFirst .textCol { order: -1; }
   .collageContainer { height: 1400px; }
-  .researchSplitAdvanced { flex-direction: column; }
-  .paperImgBoxSmall { margin-top: -40px; margin-bottom: 20px; height: auto; aspect-ratio: 1/1.4; }
-  .researchImgColSmall { flex: 1; width: 100%; }
+
+  /* Research: xếp dọc, ảnh quay lại nằm trong luồng bình thường */
+  .researchSplitAdvanced { flex-direction: column; gap: 40px; min-height: 0; }
+  .researchImgColSmall { position: relative; align-self: auto; flex: 1; width: 100%; }
+  .paperImgBoxSmall {
+    position: relative;
+    inset: auto;
+    margin: calc(-1 * var(--overhang)) auto 20px;
+    height: auto;
+    aspect-ratio: 1/1.4;
+    width: 100%;
+    max-width: 280px;
+  }
   
   .dengueGrid { grid-template-columns: 1fr; }
   .twoCol { flex-direction: column; }

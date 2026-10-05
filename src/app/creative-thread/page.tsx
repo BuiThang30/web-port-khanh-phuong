@@ -71,7 +71,16 @@ const VideoLinkBox = ({ src, link, alt }: { src: string, link: string, alt: stri
 );
 
 // Video MP4 phát tại chỗ: hiện nút Play, bấm vào mới chạy
-const VideoPlayerBox = ({ src, poster }: { src: string; poster?: string }) => {
+// aspectRatio: tỉ lệ khung hình của video (mặc định 16 / 9)
+const VideoPlayerBox = ({
+  src,
+  poster,
+  aspectRatio = "16 / 9",
+}: {
+  src: string;
+  poster?: string;
+  aspectRatio?: string;
+}) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false); // đã bấm play ít nhất 1 lần
   const [paused, setPaused] = useState(true);
@@ -81,7 +90,7 @@ const VideoPlayerBox = ({ src, poster }: { src: string; poster?: string }) => {
   };
 
   return (
-    <div className={styles.imgBox} style={{ aspectRatio: "16 / 9" }}>
+    <div className={styles.imgBox} style={{ aspectRatio }}>
       <video
         ref={videoRef}
         src={src}
@@ -116,10 +125,7 @@ export default function CreativeThread() {
       <section className={styles.heroSection}>
         <div className={styles.heroText}>
           <p className={styles.introText}>
-            Step into the atelier of my pure imagination where I stretch the
-            limits of my body, hand and soul! Follow through to see how I found
-            joy in weaving these threads but also sharing them with the people
-            around me.
+            Step into the atelier of my pure imagination where I stretch the limits of my body, hand and soul! Follow through to see how I found joy in weaving these threads but also sharing them with the people around me.
           </p>
         </div>
       </section>
@@ -388,7 +394,13 @@ export default function CreativeThread() {
             </div>
           </div>
           <div className={styles.sportImageCol}>
-            <VideoPlayerBox src="/image/creative-thread-video-3.mp4" />
+            {/* Video dọc gần vuông (1044 x 1135): giữ đúng tỉ lệ gốc, không cắt */}
+            <div className={styles.sportVideoWrap}>
+              <VideoPlayerBox
+                src="/image/creative-thread-video-3.mp4"
+                aspectRatio="1044 / 1135"
+              />
+            </div>
           </div>
         </div>
       </div>

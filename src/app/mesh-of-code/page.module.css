@@ -186,7 +186,7 @@
   margin-top: 180px; 
   margin-bottom: 150px; 
   text-align: left;
-  max-width: 900px;
+  max-width: 1440px;
 }
 .pinkTitle {
   color: #f230aa;
@@ -244,7 +244,7 @@
 }
 .sectionTitle {
   color: #f230aa;
-  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+    font-family: "Akzidenz-Grotesk BQ Extended-1";
   font-size: 36px;
   font-weight: 700;
   text-transform: uppercase;
@@ -376,6 +376,45 @@
   gap: 16px;
 }
 
+/* ================= HÀNG 3 ẢNH + CHÚ THÍCH (cùng chiều cao, không cắt ảnh) =================
+   Cả 3 ảnh dùng CHUNG một chiều cao (--figure-h), chiều rộng tự tính theo tỉ lệ gốc
+   của từng ảnh (width: auto) -> không cắt ảnh và luôn bằng chiều cao, dù thay ảnh nào.
+   --figure-h tự co theo màn hình để cả hàng vừa khít khung (tối đa 300px).
+   Nếu muốn ảnh to/nhỏ hơn: đổi số 300px (tối đa) hoặc 4.15 (số lớn hơn -> ảnh nhỏ hơn). */
+.figureRow {
+  --figure-h: clamp(120px, calc((min(100vw, 1440px) * 0.84 - 56px) / 4.15), 300px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  margin: 30px 0;
+}
+.figureItem {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: min-content; /* chú thích tự xuống dòng theo chiều rộng của ảnh */
+  max-width: 100%;
+}
+.figureA, .figureB, .figureC { flex: 0 0 auto; }
+.figureImg {
+  display: block;
+  height: var(--figure-h);
+  width: auto;
+  max-width: none;
+}
+.figureCaption {
+  color: #fff5d0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
 /* GIANTS */
 .giantsRow {
   display: flex;
@@ -465,6 +504,7 @@
 
 /* ================= NEW ADVANCED RESEARCH CARD ================= */
 .researchCardAdvanced {
+  --overhang: 34px; /* phần ảnh chứng nhận lòi ra trên/dưới thanh xám */
   position: relative;
   width: 100%;
   margin-top: 100px;
@@ -472,7 +512,7 @@
 }
 .researchTopWrapper {
   position: relative;
-  margin-bottom: 160px;
+  margin-bottom: 80px;
 }
 .grayBgFullWidth {
   position: absolute;
@@ -494,13 +534,15 @@
   align-items: flex-start;
 }
 
+/* Thanh xám gọn: padding trên/dưới nhỏ, có chiều cao tối thiểu */
 .researchSplitAdvanced {
   display: flex;
   gap: 60px;
   align-items: center; 
   position: relative;
   z-index: 1;
-  padding: 60px 0; 
+  padding: 24px 0;
+  min-height: 300px;
 }
 
 .researchImgCol {
@@ -511,6 +553,8 @@
 
 .researchImgColSmall {
   flex: 0 0 25%;
+  position: relative;
+  align-self: stretch; /* cao đúng bằng thanh xám */
   display: flex;
   flex-direction: column;
 }
@@ -533,15 +577,26 @@
   border-radius: 4px;
 }
 
+/* Ảnh cao hơn thanh xám: lòi ra trên và dưới --overhang, có bóng nổi 3D */
 .paperImgBoxSmall {
-  position: relative;
-  width: 100%;
-  height: 480px; 
-  margin-top: -80px; 
-  margin-bottom: -80px; 
-  background-color: #fff;
-  box-shadow: 5px 5px 25px rgba(0,0,0,0.6); 
-  border-radius: 4px;
+  position: absolute;
+  top: calc(-1 * var(--overhang));
+  bottom: calc(-1 * var(--overhang));
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+}
+.paperImgBoxSmall img {
+  object-fit: contain !important; /* hiện đủ ảnh, đè style inline objectFit: cover */
+  background-color: transparent !important; /* đè style inline backgroundColor "#fff" */
+  filter:
+    drop-shadow(0 22px 26px rgba(0, 0, 0, 0.7))
+    drop-shadow(0 6px 8px rgba(0, 0, 0, 0.5));
 }
 
 .researchTitle {
@@ -745,14 +800,27 @@
   .bookImagesRow { flex-direction: column; gap: 20px; }
   .heroPinkLeft, .heroPinkRightContent { text-align: center; }
   .heroPinkRightWrapper { justify-content: center; }
-  .paperImgBox, .paperImgBoxSmall { margin-top: -40px; margin-bottom: 20px; height: auto; aspect-ratio: 1/1.4; }
+  .paperImgBox { margin-top: -40px; margin-bottom: 20px; height: auto; aspect-ratio: 1/1.4; }
+
+  /* Research: xếp dọc, ảnh quay lại nằm trong luồng bình thường */
+  .researchSplitAdvanced { min-height: 0; gap: 40px; }
+  .researchImgColSmall { position: relative; align-self: auto; flex: 1; }
+  .paperImgBoxSmall {
+    position: relative;
+    inset: auto;
+    margin: calc(-1 * var(--overhang)) auto 20px;
+    height: auto;
+    aspect-ratio: 1/1.4;
+    width: 100%;
+    max-width: 280px;
+  }
   .researchTopWrapper { margin-bottom: 60px; }
-  .researchSplitAdvanced { padding: 40px 0; }
-  .researchImgColSmall { flex: 1; }
   .videoCenterWrapper { margin-top: 40px; }
   .internImgCol, .internTextCol { flex: 1 1 auto; width: 100%; }
   .diaryCol { width: 100%; }
   .paperBox { width: 60%; }
+  .figureRow { gap: 16px; }
+  .figureCaption { font-size: 13px; }
 }
 @media (max-width: 768px) {
   .heroIntroText { margin: 80px auto 60px; }
@@ -775,6 +843,12 @@
   .extendedIntroSection { gap: 60px; }
   .twoColNotes { grid-template-columns: 1fr; }
   .paperBox { width: 80%; }
+
+  /* 3 ảnh + chú thích: xếp dọc, mỗi ảnh full chiều ngang (tối đa 480px) */
+  .figureRow { flex-direction: column; align-items: center; gap: 32px; }
+  .figureItem { width: 100%; max-width: 480px; }
+  .figureA { max-width: 300px; }
+  .figureImg { width: 100%; height: auto; }
 
   .playIconSvg { width: 60px; height: 60px; }
   .pauseOverlay { opacity: 1; }

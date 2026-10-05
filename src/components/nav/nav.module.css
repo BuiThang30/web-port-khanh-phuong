@@ -45,6 +45,7 @@
   display: flex;
   flex-direction: column;
   height: 60px;
+  flex-shrink: 0; /* không cho các mục bị co lại -> khoảng cách luôn đều */
 }
 
 .link {
@@ -91,8 +92,11 @@
     display: block;
     position: absolute;
     top: 100%;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 100%;      /* ít nhất bằng mục cha */
+    width: max-content;   /* tự rộng theo nội dung (vd: International Science Youth Forum) */
+    max-width: 280px;
     padding: 16px 0 14px;
     background-color: #000;
   }

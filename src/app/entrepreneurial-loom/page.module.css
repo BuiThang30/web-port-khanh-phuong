@@ -13,7 +13,7 @@
 
 .sectionTitle {
   color: #f230aa;
-  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-family: "Akzidenz-Grotesk BQ Extended-1";
   font-size: 32px;
   font-weight: 700;
   text-align: center;
@@ -63,7 +63,7 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(9, 9, 9, 0.72);
+  background: rgba(83, 82, 82, 0.72);
   z-index: 1;
 }
 

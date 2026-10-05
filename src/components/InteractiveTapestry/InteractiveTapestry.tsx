@@ -1,8 +1,11 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from './InteractiveTapestry.module.css';
+
+const DEFAULT_IMAGE = '/image/home-a.png';
+const AUTO_INTERVAL = 3000; // ms: thời gian giữa 2 lần tự chuyển ảnh
 
 const TAPESTRY_DATA = [
   {
@@ -14,62 +17,83 @@ const TAPESTRY_DATA = [
   {
     id: 'faith',
     label: 'Woven with faith and positivity',
-    image: '/image/home-b.png', 
-    position: { top: '10.8%', left: '6.5%' }, 
+    image: '/image/home-b.png',
+    position: { top: '10.8%', left: '6.5%' },
   },
   {
     id: 'enterprise',
     label: 'Designed by enterprise and algorithm',
-    image: '/image/home-e.png', 
+    image: '/image/home-e.png',
     position: { top: '18.9%', right: '7.8%' },
   },
   {
     id: 'healthcare',
     label: 'Tailored for healthcare',
-    image: '/image/home-c.png', 
+    image: '/image/home-c.png',
     position: { top: '27%', left: '12%' },
   },
   {
     id: 'community',
     label: 'Knit into community',
-    image: '/image/home-f.png', 
+    image: '/image/home-f.png',
     position: { top: '39%', left: '61%', transform: 'translateX(-50%)' },
   },
 ];
 
-export default function InteractiveTapestry() {
-  const [activeImage, setActiveImage] = useState('/image/home-a.png'); 
-  const [activeId, setActiveId] = useState<string | null>(null);
+// Vòng lặp: ảnh mặc định -> 5 ảnh theo thứ tự -> quay lại ảnh mặc định
+const SLIDES = [DEFAULT_IMAGE, ...TAPESTRY_DATA.map((item) => item.image)];
 
-  const handleLabelClick = (id: string, imagePath: string) => {
-    if (activeId === id) {
-      setActiveImage('/image/home-a.png');
-      setActiveId(null);
-    } else {
-      setActiveImage(imagePath);
-      setActiveId(id);
-    }
+export default function InteractiveTapestry() {
+  // 0 = ảnh mặc định, 1..5 = ảnh của từng nhãn
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  // Tự động chuyển ảnh. Mỗi lần index đổi (kể cả khi bấm tay) bộ đếm được đặt lại,
+  // nên sau khi người dùng bấm, ảnh sẽ giữ đủ 3 giây rồi mới chạy tiếp.
+  useEffect(() => {
+    if (paused) return;
+    const timer = setTimeout(() => {
+      setIndex((prev) => (prev + 1) % SLIDES.length);
+    }, AUTO_INTERVAL);
+    return () => clearTimeout(timer);
+  }, [index, paused]);
+
+  const activeId = index === 0 ? null : TAPESTRY_DATA[index - 1].id;
+
+  // Vẫn cho bấm nhãn để nhảy tới ảnh đó; bấm lại nhãn đang chọn thì về ảnh mặc định
+  const handleLabelClick = (i: number) => {
+    setIndex((prev) => (prev === i ? 0 : i));
   };
 
   return (
-    <section className={styles.section}>
+    <section
+      className={styles.section}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <div className={styles.container}>
-        
+
         <div className={styles.innerImageWrapper}>
-          <Image 
-            src={activeImage} 
-            alt="Inner Tapestry" 
-            fill
-            className={styles.innerImage}
-            sizes="(max-width: 1024px) 50vw, 400px"
-            priority
-          />
+          {/* Xếp chồng tất cả ảnh, chỉ ảnh đang chọn có opacity 1 -> chuyển ảnh mượt (fade) */}
+          {SLIDES.map((src, i) => (
+            <Image
+              key={src}
+              src={src}
+              alt={i === 0 ? 'Inner Tapestry' : ''}
+              aria-hidden={i !== index}
+              fill
+              className={styles.innerImage}
+              style={{ opacity: i === index ? 1 : 0 }}
+              sizes="(max-width: 1024px) 50vw, 400px"
+              priority
+            />
+          ))}
         </div>
 
         <div className={styles.flowerWrapper}>
-          <Image 
-            src="/image/home.png" 
-            alt="Flower Frame" 
+          <Image
+            src="/image/home.png"
+            alt="Flower Frame"
             fill
             className={styles.flowerImage}
             sizes="(max-width: 1024px) 100vw, 1125px"
@@ -78,12 +102,12 @@ export default function InteractiveTapestry() {
         </div>
 
         <div className={styles.labelsContainer}>
-          {TAPESTRY_DATA.map((item) => (
+          {TAPESTRY_DATA.map((item, i) => (
             <button
               key={item.id}
               className={`${styles.labelButton} ${activeId === item.id ? styles.activeLabel : ''}`}
               style={item.position}
-              onClick={() => handleLabelClick(item.id, item.image)}
+              onClick={() => handleLabelClick(i + 1)}
             >
               {item.label}
             </button>

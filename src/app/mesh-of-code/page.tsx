@@ -376,19 +376,20 @@ export default function MeshOfCode() {
           <div className={styles.researchBottomWrapper}>
              <div className={styles.content}>
                 
-                <div className={styles.gridThree}>
-                   <div className={styles.imgBox} style={{ aspectRatio: "1/1" }}>
-                      <Image src={IMG(27)} alt="IRC-SET" fill className={styles.fillImg} />
-                      <p className={styles.captionBox}>IRC-SET 2026</p>
-                   </div>
-                   <div className={styles.imgBox} style={{ aspectRatio: "1/1" }}>
-                      <Image src={IMG(28)} alt="Mentor" fill className={styles.fillImg} />
-                      <p className={styles.captionBox}>My mentor - Dr. Samir Soneji, a veteran biostatistician</p>
-                   </div>
-                   <div className={styles.imgBox} style={{ aspectRatio: "1/1" }}>
-                      <Image src={IMG(29)} alt="Certification" fill className={styles.fillImg} />
-                      <p className={styles.captionBox}>Certification<br/>Lumiere Research Scholar Program | 2026</p>
-                   </div>
+                {/* 3 ảnh hiển thị nguyên tỉ lệ (không cắt), chú thích nằm dưới từng ảnh */}
+                <div className={styles.figureRow}>
+                   <figure className={`${styles.figureItem} ${styles.figureA}`}>
+                      <img src={IMG(27)} alt="IRC-SET 2026" className={styles.figureImg} />
+                      <figcaption className={styles.figureCaption}>IRC-SET 2026</figcaption>
+                   </figure>
+                   <figure className={`${styles.figureItem} ${styles.figureB}`}>
+                      <img src={IMG(28)} alt="My mentor - Dr. Samir Soneji" className={styles.figureImg} />
+                      <figcaption className={styles.figureCaption}>My mentor - Dr. Samir Soneji, a veteran biostatistician</figcaption>
+                   </figure>
+                   <figure className={`${styles.figureItem} ${styles.figureC}`}>
+                      <img src={IMG(29)} alt="Lumiere Research Scholar Program certification" className={styles.figureImg} />
+                      <figcaption className={styles.figureCaption}>Certification<br/>Lumiere Research Scholar Program | 2026</figcaption>
+                   </figure>
                 </div>
 
                 <div className={styles.bodyTextCentered} style={{ maxWidth: 1000, margin: "40px auto 0" }}>
@@ -498,10 +499,10 @@ export default function MeshOfCode() {
 
              <div className={styles.col} style={{ display: "flex", flexDirection: "column" }}>
                 <div style={{ display: "flex", gap: 20, marginBottom: 12 }}>
-                   <div className={styles.imgBox} style={{ aspectRatio: "16/9", flex: 1 }}>
+                   <div className={styles.imgBox} style={{ aspectRatio: "9/16", flex: 1 }}>
                       <Image src={IMG(39)} alt="Droptest 1" fill className={styles.fillImg} />
                    </div>
-                   <div className={styles.imgBox} style={{ aspectRatio: "16/9", flex: 1 }}>
+                   <div className={styles.imgBox} style={{ aspectRatio: "9/16", flex: 1 }}>
                       <Image src={IMG(40)} alt="Droptest 2" fill className={styles.fillImg} />
                    </div>
                 </div>
@@ -552,14 +553,18 @@ export default function MeshOfCode() {
                    <Image src={IMG(45)} alt="Evolution" fill className={styles.fillImg} />
                 </div>
                 <p className={styles.bodyText} style={{ textAlign: "left", marginBottom: 30 }}>The Economics of Evolution: I broke down the mathematical optimization of marginalist ant colonies, symbiotic externalities, and free-riding bacteria in a classic Prisoner&apos;s Dilemma.</p>
-                <a href="#" className={styles.outlineBtn}>Dive in and explore! →</a>
+                <a href="https://www.instagram.com/p/DN8L-d1E95f/?img_index=6" className={styles.outlineBtn} target="_blank" rel="noopener noreferrer">
+                  Dive in and explore! →
+                </a>
              </div>
              <div className={styles.col} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <div className={styles.imgBox} style={{ aspectRatio: "3/4", width: "100%", marginBottom: 20 }}>
                    <Image src={IMG(46)} alt="US-Iran War" fill className={styles.fillImg} />
                 </div>
-                <p className={styles.bodyText} style={{ textAlign: "left", marginBottom: 30 }}>The Economics of Evolution: I broke down the mathematical optimization of marginalist ant colonies, symbiotic externalities, and free-riding bacteria in a classic Prisoner&apos;s Dilemma.</p>
-                <a href="#" className={styles.outlineBtn}>Dive in and explore! →</a>
+                <p className={styles.bodyText} style={{ textAlign: "left", marginBottom: 30 }}>Join the tour to discover Adam Smith’s laissez-faire flair, to Karl Marx&apos;s class act, from Keynesian fixes in times of crises to Friedman&apos;s free-market freedom.</p>
+                <a href="https://www.instagram.com/p/DM7TN2pRl_x/?hl=en&img_index=1" className={styles.outlineBtn} target="_blank" rel="noopener noreferrer">
+                  Dive in and explore! →
+                </a>
              </div>
           </div>
 
