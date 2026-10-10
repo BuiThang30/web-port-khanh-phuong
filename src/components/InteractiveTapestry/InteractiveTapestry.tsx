@@ -44,12 +44,8 @@ const TAPESTRY_DATA = [
 const SLIDES = [DEFAULT_IMAGE, ...TAPESTRY_DATA.map((item) => item.image)];
 
 export default function InteractiveTapestry() {
-  // 0 = ảnh mặc định, 1..5 = ảnh của từng nhãn
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
-
-  // Tự động chuyển ảnh. Mỗi lần index đổi (kể cả khi bấm tay) bộ đếm được đặt lại,
-  // nên sau khi người dùng bấm, ảnh sẽ giữ đủ 3 giây rồi mới chạy tiếp.
   useEffect(() => {
     if (paused) return;
     const timer = setTimeout(() => {
@@ -59,8 +55,6 @@ export default function InteractiveTapestry() {
   }, [index, paused]);
 
   const activeId = index === 0 ? null : TAPESTRY_DATA[index - 1].id;
-
-  // Vẫn cho bấm nhãn để nhảy tới ảnh đó; bấm lại nhãn đang chọn thì về ảnh mặc định
   const handleLabelClick = (i: number) => {
     setIndex((prev) => (prev === i ? 0 : i));
   };
@@ -122,6 +116,16 @@ export default function InteractiveTapestry() {
             on the spirit of positivity and harmony!
           </p>
         </div>
+
+        {/* Nút View my resume */}
+        <a 
+          href="https://drive.google.com/file/d/1U9-MTN5TYek7Xk5UJ1ow0elRh8C2nm_Z/view?usp=sharing" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={styles.resumeButton}
+        >
+          View my resume
+        </a>
       </div>
     </section>
   );

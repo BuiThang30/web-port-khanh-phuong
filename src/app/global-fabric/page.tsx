@@ -33,6 +33,9 @@ export default function GlobalFabric() {
     <div className={styles.page}>
       <section className={styles.introSection}>
         <div className={styles.content}>
+          <div className={styles.heroPinkLeft}>
+            Welcome to my global community projects
+          </div>
           <div className={`${styles.narrow} ${styles.body}`}>
             <p>
               A tapestry speaking of a whole civilisation is not made from a

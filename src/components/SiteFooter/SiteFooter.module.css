@@ -1,0 +1,153 @@
+.footerSection {
+  --u: calc(min(100vw, 1440px) / 1440);
+  --fs-title: max(24px, calc(32 * var(--u)));
+  --fs-small: max(12px, calc(14 * var(--u)));
+  --gap-s: max(10px, calc(16 * var(--u)));
+  --gap-m: max(16px, calc(24 * var(--u)));
+  --gap-l: max(24px, calc(40 * var(--u)));
+
+  width: 100%;
+  background-color: #111111;
+  padding-top: max(32px, calc(60 * var(--u)));
+  overflow: hidden;
+}
+
+.footerContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.footerGraphic {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footerSvgImage {
+  width: 100%;
+  max-width: 1440px;
+  height: auto;
+}
+
+.contactInfo {
+  position: absolute;
+  left: 5%;
+  top: 60%;
+  width: max(calc(420 * var(--u)), 230px);
+  max-width: 90%;
+  z-index: 2;
+}
+
+.contactTitle {
+  color: #F230AA;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-title);
+  font-weight: 700;
+  margin-bottom: var(--gap-l);
+}
+
+.contactBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+  margin: var(--gap-m) 0;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-s);
+  color: #FFF5D0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  text-decoration: none;
+  width: fit-content;
+  max-width: 100%;
+  cursor: pointer;
+  padding: 6px 10px;
+  margin: -6px -10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease, transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.contactItem svg {
+  color: #FFF5D0;
+  flex-shrink: 0;
+  width: max(16px, calc(20 * var(--u)));
+  height: max(16px, calc(20 * var(--u)));
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.contactItem:focus-visible {
+  color: #111111;
+  background-color: #E2FF54;
+  border-color: #E2FF54;
+}
+
+.contactItem:focus-visible svg {
+  color: #111111;
+}
+
+@media (hover: hover) {
+  .contactItem:hover {
+    color: #111111;
+    background-color: #E2FF54;
+    border-color: #E2FF54;
+    transform: translateX(4px);
+  }
+  .contactItem:hover svg {
+    color: #111111;
+    transform: scale(1.15);
+  }
+}
+
+.contactDivider {
+  border: none;
+  height: 1px;
+  background-color: rgba(255, 245, 208, 0.3);
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .footerSection {
+    padding-bottom: 56px;
+  }
+  .footerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .contactInfo {
+    position: static;
+    width: 100%;
+    max-width: 520px;
+    padding: 0 6%;
+    box-sizing: border-box;
+  }
+  .contactTitle {
+    margin-bottom: 24px;
+  }
+  .contactItem {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footerSection {
+    --fs-title: 24px;
+    --fs-small: 13px;
+    --gap-s: 12px;
+    --gap-m: 20px;
+    --gap-l: 28px;
+  }
+  .contactInfo {
+    padding: 0 5%;
+    max-width: 100%;
+  }
+}

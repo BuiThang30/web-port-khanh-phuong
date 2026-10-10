@@ -182,7 +182,9 @@ export default function NeedleOfCare() {
       {/* ================= NEEDLE: THÊU & KHÂU VẾT THƯƠNG ================= */}
       <section className={styles.section}>
         <div className={styles.content}>
-
+          <div className={styles.heroPinkLeft}>
+            Welcome to my atelier of biology and healthcare!
+          </div>
           <div className={styles.row}>
             <div className={styles.textCol}>
               <div className={styles.text}>
@@ -372,7 +374,7 @@ export default function NeedleOfCare() {
                       <ul className={styles.researchList}>
                          <li>Public Health</li>
                          <li>Writer</li>
-                         <li>Shortlisted in top 17.5% in the John Locke Global Essay Prize</li>
+                         <li>High Commendation in John Locke Global Essay Prize in Public Policy 2026</li>
                       </ul>
                       <div style={{ marginTop: 24, paddingLeft: 20 }}>
                          <a href="https://drive.google.com/file/d/1vH4IiiTVkhUMAboLu-jrQOWimJi6yBOs/view" className={styles.collectionBtn} target="_blank" rel="noopener noreferrer">Read my researched essay here →</a>
@@ -984,7 +986,6 @@ export default function NeedleOfCare() {
 
         </div>
       </section>
-
     </div>
   );
 }

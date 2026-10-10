@@ -157,11 +157,62 @@
 }
 
 /* =========================================
+   Nút Resume (Thiết kế giống ô chữ bottomText)
+========================================= */
+.resumeButton {
+  position: absolute;
+  bottom: 12%; 
+  left: 32%;   
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  background-color: white;
+  border: 2px solid #F230AA;
+  padding: 15px 30px;
+  z-index: 10;
+  text-decoration: none;
+  color: #154d3e;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: 24px; /* Kích thước chữ đã được làm to hơn */
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.resumeButton::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background:
+    linear-gradient(#F230AA, #F230AA) top left / 8px 8px no-repeat,
+    linear-gradient(#F230AA, #F230AA) top right / 8px 8px no-repeat,
+    linear-gradient(#F230AA, #F230AA) bottom left / 8px 8px no-repeat,
+    linear-gradient(#F230AA, #F230AA) bottom right / 8px 8px no-repeat;
+  pointer-events: none;
+  z-index: 11;
+  transition: all 0.2s ease;
+}
+
+.resumeButton:hover {
+  background-color: #F230AA;
+  color: #E2FF54;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.resumeButton:hover::before {
+  background:
+    linear-gradient(#E2FF54, #E2FF54) top left / 8px 8px no-repeat,
+    linear-gradient(#E2FF54, #E2FF54) top right / 8px 8px no-repeat,
+    linear-gradient(#E2FF54, #E2FF54) bottom left / 8px 8px no-repeat,
+    linear-gradient(#E2FF54, #E2FF54) bottom right / 8px 8px no-repeat;
+}
+
+/* =========================================
    ≤ 1200px: đưa ô chữ ra GIỮA MÀN HÌNH.
-   - Container vẫn lệch trái nhưng theo % (182 / 1125.65 = 16.17%)
-     nên co giãn cùng bông hoa, không bị cắt mép trái.
-   - Tâm màn hình nằm ở 50% + 16.17% = 66.17% bề ngang container.
-   - Bề rộng ô không bao giờ vượt quá màn hình.
 ========================================= */
 @media (max-width: 1200px) {
   .container {
@@ -171,6 +222,10 @@
   .bottomText {
     left: 66.17%;
     width: min(650px, calc(100vw - 40px));
+  }
+
+  .resumeButton {
+    left: 40%;
   }
 }
 
@@ -183,14 +238,16 @@
   .bottomText p {
     font-size: 15px;
   }
+  .resumeButton {
+    font-size: 20px;
+    padding: 12px 24px;
+  }
 }
 
 /* =========================================
    ≤ 768px: container không lệch nữa, ô chữ nằm giữa container
 ========================================= */
 @media (max-width: 768px) {
-  /* --off: chiều cao vùng dành cho 5 thẻ ở đầu (tăng nếu thẻ bị đè lên hoa)
-     --h:   chiều cao gốc của khu vực bông hoa theo tỉ lệ thiết kế */
   .container {
     transform: none;
     --off: 150px;
@@ -199,7 +256,6 @@
     height: calc(var(--h) + var(--off));
   }
 
-  /* Bông hoa và ảnh bên trong dịch xuống dưới vùng thẻ */
   .flowerWrapper {
     top: var(--off);
     height: var(--h);
@@ -210,7 +266,6 @@
     height: calc(var(--h) * 0.4347);
   }
 
-  /* 5 thẻ xếp thành hàng ngang, tự xuống dòng, nằm trên cùng */
   .labelsContainer {
     height: auto;
     display: flex;
@@ -222,7 +277,6 @@
     box-sizing: border-box;
   }
 
-  /* !important để đè vị trí inline (top/left/transform) trong TSX */
   .labelButton {
     position: static !important;
     top: auto !important;
@@ -264,5 +318,20 @@
   .bottomText p {
     font-size: 12px;
     line-height: 1.5;
+  }
+
+  .resumeButton {
+    left: 50%;
+    bottom: calc(var(--h) * 0.01);
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .resumeButton::before {
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background-size: 6px 6px;
   }
 }

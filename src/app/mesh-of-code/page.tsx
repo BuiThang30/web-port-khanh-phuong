@@ -108,6 +108,10 @@ export default function MeshOfCode() {
       <section className={styles.heroSection}>
         <div className={styles.content}>
           
+          <div className={styles.heroPinkLeft}>
+            Welcome to my sandbox where you can explore the dimensions of mathematics, game theory, statistics, and artificial intelligence!
+          </div>
+          
           <div className={styles.heroIntroText}>
             <p>How does flat cloth warp flawlessly around a 3D human body? I always admired how my mom and other tailors crafted perfect fits from just three measurements. The secret lies in developable surfaces, which bend without stretching. While knits stretch via loops, woven fabrics deform by altering the angles between warp and weft threads. This is the essence of Chebyshev nets, a geometric framework modeling fabric as a network of inextensible fibers. By linking geometry to garment design, clothing becomes a living mesh of code where math conforms to the human form.</p>
           </div>
@@ -124,10 +128,6 @@ export default function MeshOfCode() {
           <p className={styles.captionText} style={{ textAlign: "center", marginBottom: 120, fontWeight: 700 }}>
             My very first sewing calculation lessons
           </p>
-
-          <div className={styles.heroPinkLeft}>
-            Welcome to my sandbox where you can explore the dimensions of mathematics, game theory, statistics, and artificial intelligence!
-          </div>
 
           <div className={styles.heroPinkRightWrapper}>
             <div className={styles.heroPinkRightContent}>

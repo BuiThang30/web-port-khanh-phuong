@@ -13,6 +13,7 @@ type NavItem = {
 
 const LINKS: NavItem[] = [
   { label: "Home", href: "/" },
+  { label: "About me", href: "/about-me" },
   {
     label: "Needle of care",
     href: "/needle-of-care",
@@ -28,7 +29,7 @@ const LINKS: NavItem[] = [
     href: "/mesh-of-code",
     sub: [
       { label: "Achievements", href: "/mesh-of-code#achievement" },
-      { label: "Research projects", href: "/mesh-of-code#research" },
+      { label: "Research", href: "/mesh-of-code#research" },
       { label: "Community", href: "/mesh-of-code#community" },
       { label: "Internship", href: "/mesh-of-code#internship" },
     ],

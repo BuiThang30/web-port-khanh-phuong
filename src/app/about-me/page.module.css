@@ -1,0 +1,614 @@
+/* =========================================================
+   TRANG ABOUT ME
+   - Đặt tại: app/about-me/page.module.css
+   - --u = 1 "đơn vị thiết kế" (1px ở 1440px), tự co theo màn hình.
+   - Cỡ chữ đều có sàn; token được ghi đè 1 lần ở breakpoint mobile.
+   - Breakpoints: 992px (tablet), 768px (mobile).
+========================================================= */
+.page {
+  --u: calc(min(100vw, 1440px) / 1440);
+
+  /* Cỡ chữ (có sàn) */
+  --fs-body: max(15px, calc(18 * var(--u)));
+  --fs-about: max(15px, calc(18 * var(--u)));
+  --fs-small: max(12px, calc(14 * var(--u)));
+  --fs-label: max(12px, calc(14.5 * var(--u)));
+  --fs-h3: max(15px, calc(18 * var(--u)));
+  --fs-invention: max(16px, calc(22 * var(--u)));
+  --fs-about-title: max(40px, calc(50 * var(--u)));
+  --fs-title: max(24px, calc(32 * var(--u)));
+
+  /* Khoảng cách (có sàn) */
+  --gap-s: max(10px, calc(16 * var(--u)));
+  --gap-m: max(16px, calc(24 * var(--u)));
+  --gap-l: max(24px, calc(40 * var(--u)));
+
+  width: 100%;
+  overflow-x: hidden;
+  /* chừa chỗ cho thanh nav cố định (cao 60px) */
+  padding-top: 60px;
+}
+
+/* =========================================
+   ABOUT THE TAILOR SECTION
+========================================= */
+.aboutSection {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.aboutImageContent {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.aboutImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: right center;
+}
+
+.aboutTextContent {
+  position: absolute;
+  top: 35%;
+  left: 8%;
+  width: max(calc(638 * var(--u)), 320px);
+  max-width: 84%;
+  z-index: 2;
+}
+
+.aboutTitle {
+  color: #F230AA;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-about-title);
+  font-weight: 700;
+  margin-bottom: var(--gap-m);
+}
+
+.aboutDescription {
+  color: #FFF5D0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-about);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+/* =========================================
+   COLORS SECTION (PINK & GREEN)
+========================================= */
+.colorsSection {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.colorsImageContent {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Thu nhỏ ảnh để đường cong xanh không đè lên đoạn chữ.
+   Nếu vẫn chạm chữ: giảm xuống 65%. Muốn ảnh to hơn: tăng lên (đừng quá ~75%). */
+.colorsImage {
+  width: 72%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.colorsTextContent {
+  position: absolute;
+  top: 15%;
+  right: 8%;
+  width: max(calc(550 * var(--u)), 300px);
+  max-width: 84%;
+  z-index: 2;
+}
+
+.colorsDescription {
+  color: #FFF5D0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-body);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+/* =========================================
+   COLLECTION & INVENTION SECTION
+========================================= */
+.collectionSection {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: max(48px, calc(80 * var(--u))) 8%;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.collectionContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: max(calc(600 * var(--u)), 320px);
+  max-width: 100%;
+}
+
+.imageBoxWrapper {
+  position: relative;
+  margin-bottom: var(--gap-l);
+  width: 100%;
+}
+
+.collectionImageContainer {
+  position: relative;
+  border: 2px solid #E2FF54;
+  padding: 0;
+  display: block;
+}
+
+.collectionImageContainer::before {
+  content: "";
+  position: absolute;
+  top: -5px; left: -5px; right: -5px; bottom: -5px;
+  background:
+    linear-gradient(#E2FF54, #E2FF54) top left / 8px 8px no-repeat,
+    linear-gradient(#E2FF54, #E2FF54) top right / 8px 8px no-repeat,
+    linear-gradient(#E2FF54, #E2FF54) bottom left / 8px 8px no-repeat,
+    linear-gradient(#E2FF54, #E2FF54) bottom right / 8px 8px no-repeat;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.collectionImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.collectionLabel {
+  position: absolute;
+  bottom: max(-20px, calc(-20 * var(--u)));
+  right: max(-30px, calc(-30 * var(--u)));
+  background-color: #FFF5D0;
+  border: 2px solid #F230AA;
+  padding: max(8px, calc(12 * var(--u))) max(14px, calc(24 * var(--u)));
+  color: #154d3e;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  line-height: 1.4;
+  z-index: 3;
+}
+
+.collectionLabel::before {
+  content: "";
+  position: absolute;
+  top: -5px; left: -5px; right: -5px; bottom: -5px;
+  background:
+    linear-gradient(#F230AA, #F230AA) top left / 8px 8px no-repeat,
+    linear-gradient(#F230AA, #F230AA) top right / 8px 8px no-repeat,
+    linear-gradient(#F230AA, #F230AA) bottom left / 8px 8px no-repeat,
+    linear-gradient(#F230AA, #F230AA) bottom right / 8px 8px no-repeat;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.inventionWrapper {
+  width: 100%;
+}
+
+.inventionTitle {
+  color: #FFF5D0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-invention);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: var(--gap-m);
+}
+
+.healButton {
+  background: transparent;
+  border: 1px solid #FFF5D0;
+  color: #FFF5D0;
+  padding: max(8px, calc(10 * var(--u))) max(18px, calc(24 * var(--u)));
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.healButton:hover,
+.healButton:focus-visible {
+  background: #FFF5D0;
+  color: #111111;
+}
+
+/* =========================================
+   MY JOURNEY OF FAITH SECTION
+========================================= */
+.faithSection {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: max(40px, calc(60 * var(--u))) 8% max(56px, calc(100 * var(--u))) 8%;
+  box-sizing: border-box;
+}
+
+.faithContainer {
+  width: 100%;
+  max-width: min(100%, max(calc(850 * var(--u)), 520px));
+}
+
+.faithTitle {
+  color: #F230AA;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-title);
+  font-weight: 700;
+  margin-bottom: var(--gap-l);
+}
+
+.faithText p {
+  color: #FFF5D0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: var(--gap-m);
+  text-align: justify;
+}
+
+/* =========================================
+   FAITH IMAGES COLLAGE SECTION
+========================================= */
+.faithImagesSection {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: max(40px, calc(80 * var(--u)));
+  box-sizing: border-box;
+}
+
+.faithImagesContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.faithCollageImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* =========================================
+   MY BLUEPRINT & TIMELINE SECTION
+========================================= */
+.blueprintSection {
+  width: 100%;
+  background-color: #111111;
+  padding: max(56px, calc(100 * var(--u))) 0;
+  display: flex;
+  justify-content: center;
+}
+
+.blueprintContainer {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+}
+
+.blueprintHeader {
+  box-sizing: border-box;
+  width: 100%;
+  /* nội dung rộng tối đa ~650u (sàn 480px) + 2 lề 8% */
+  max-width: calc(max(calc(650 * var(--u)), 480px) + 16%);
+  margin-bottom: max(40px, calc(80 * var(--u)));
+  padding: 0 8%;
+}
+
+.blueprintTitle {
+  color: #F230AA;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-title);
+  font-weight: 700;
+  margin-bottom: var(--gap-m);
+}
+
+.blueprintDescription {
+  color: #FFF5D0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  font-weight: 500;
+  text-align: justify;
+}
+
+.timelineWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: max(40px, calc(80 * var(--u)));
+}
+
+.timelineItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.timelineItem.reverse {
+  flex-direction: row-reverse;
+}
+
+.timelineText {
+  flex: 1;
+  min-width: 0;
+  max-width: max(calc(800 * var(--u)), 420px);
+  padding: 0 8%;
+  box-sizing: border-box;
+}
+
+.timelineSchool {
+  color: #FFF5D0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: max(8px, calc(12 * var(--u)));
+  position: relative;
+  padding-left: 20px;
+}
+
+.timelineSchool::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 8px;
+  height: 8px;
+  background-color: #E2FF54;
+}
+
+.timelineQuote {
+  color: #FFF5D0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: var(--gap-s);
+  padding-left: 20px;
+}
+
+.timelineDesc {
+  color: #FFF5D0;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  line-height: 1.6;
+  padding-left: 20px;
+  text-align: justify;
+}
+
+.timelineImageWrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.timelineItem.reverse .timelineImageWrap {
+  justify-content: flex-start;
+}
+
+.timelineImg {
+  width: 100%;
+  max-width: calc(700 * var(--u));
+  height: auto;
+  object-fit: contain;
+  object-position: right center;
+}
+
+.timelineItem.reverse .timelineImg {
+  object-position: left center;
+}
+
+.blueprintFooterTitle {
+  color: #E2FF54;
+  font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
+  font-size: var(--fs-title);
+  font-weight: 700;
+  padding: 0 8%;
+}
+
+/* Margin âm riêng cho từng mốc (chỉ dùng ở desktop, scale theo --u) */
+.item1 { margin-top: calc(-280 * var(--u)); }
+.item2 { margin-top: calc(-230 * var(--u)); }
+.item3 { margin-top: calc(-100 * var(--u)); }
+.item4 { margin-top: calc(-110 * var(--u)); }
+.item5 { margin-top: calc(-190 * var(--u)); }
+
+/* =========================================
+   TABLET (≤ 992px): xếp dọc timeline
+========================================= */
+@media (max-width: 992px) {
+  /* Timeline */
+  .timelineWrapper {
+    gap: 56px;
+  }
+  .timelineItem,
+  .timelineItem.reverse {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+  .timelineText {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 6%;
+  }
+  .timelineText:empty {
+    display: none;
+  }
+  .timelineImageWrap,
+  .timelineItem.reverse .timelineImageWrap {
+    flex: none;
+    width: 100%;
+    justify-content: center;
+    padding: 0 6%;
+    box-sizing: border-box;
+  }
+  .timelineImg,
+  .timelineItem.reverse .timelineImg {
+    max-width: 700px;
+    object-position: center;
+  }
+  /* Xếp dọc thì bỏ margin âm để các mục không đè nhau */
+  .item1, .item2, .item3, .item4, .item5 {
+    margin-top: 0;
+  }
+}
+
+/* =========================================
+   MOBILE (≤ 768px)
+========================================= */
+@media (max-width: 768px) {
+  /* Ghi đè token 1 lần: cỡ chữ cố định, dễ đọc */
+  .page {
+    --fs-body: 13px;
+    --fs-small: 13px;
+    --fs-label: 13px;
+    --fs-h3: 16px;
+    --fs-invention: 18px;
+    --fs-about-title: 22px;
+    --fs-title: 24px;
+    --gap-s: 12px;
+    --gap-m: 20px;
+    --gap-l: 28px;
+  }
+
+  /* About: chữ nằm trên, ảnh nằm dưới
+     (đã bỏ margin-top âm cũ vì giờ đây là section đầu trang) */
+  .aboutSection {
+    flex-direction: column-reverse;
+  }
+  .aboutTextContent {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 40px 5%;
+    box-sizing: border-box;
+  }
+  .aboutDescription,
+  .colorsDescription,
+  .faithText p,
+  .blueprintDescription,
+  .timelineDesc {
+    line-height: 1.5;
+  }
+
+  /* Colors */
+  .colorsSection {
+    flex-direction: column;
+  }
+  .colorsImage {
+    width: 100%; /* mobile xếp dọc nên ảnh vẫn full chiều ngang */
+  }
+  .colorsTextContent {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 40px 5%;
+    box-sizing: border-box;
+  }
+
+  /* Collection */
+  .collectionSection {
+    padding: 56px 7%;
+    justify-content: center;
+  }
+  .collectionContent {
+    width: 100%;
+  }
+  .collectionLabel {
+    right: 0;
+    bottom: -30px;
+  }
+  .imageBoxWrapper {
+    margin-bottom: 52px; /* chừa chỗ cho nhãn đang thò xuống dưới ảnh */
+  }
+  .healButton {
+    min-height: 44px;
+  }
+
+  /* Faith */
+  .faithSection {
+    padding: 40px 5%;
+  }
+  .faithContainer {
+    max-width: 100%;
+  }
+  .faithImagesSection {
+    padding-bottom: 40px;
+  }
+
+  /* Blueprint */
+  .blueprintSection {
+    padding: 56px 0;
+  }
+  .blueprintHeader {
+    max-width: 100%;
+    padding: 0 5%;
+  }
+  .blueprintFooterTitle {
+    padding: 0 5%;
+    margin-top: 40px;
+  }
+  .timelineText,
+  .timelineImageWrap,
+  .timelineItem.reverse .timelineImageWrap {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
