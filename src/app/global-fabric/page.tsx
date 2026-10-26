@@ -36,7 +36,7 @@ export default function GlobalFabric() {
           <div className={styles.heroPinkLeft}>
             Welcome to my global community projects
           </div>
-          <div className={`${styles.narrow} ${styles.body}`}>
+          <div className={`${styles.narrow} ${styles.body} ${styles.bodyAbout}`}>
             <p>
               A tapestry speaking of a whole civilisation is not made from a
               single thread. From the silk brocade of the áo dài to the batik of

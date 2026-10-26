@@ -1,4 +1,6 @@
 .page {
+  --u: calc(min(100vw, 1440px) / 1440);
+  --fs-about: max(15px, calc(18 * var(--u)));
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
@@ -49,13 +51,13 @@
 .heroIntroText {
   color: #fff5d0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 15px;
+  font-size: var(--fs-about);
   font-weight: 500;
   line-height: 1.6;
   text-align: justify;
   text-align-last: center;
   max-width: 900px;
-  margin: 140px auto 100px; 
+  margin: 140px auto 100px;
 }
 
 /* ================= 2 ẢNH SỔ TĨNH ================= */
@@ -155,7 +157,7 @@
 .introSmallText {
   color: #fff5d0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 13.5px; 
+  font-size: 15px; 
   font-weight: 500;
   line-height: 1.6;
   text-align: justify;
@@ -625,7 +627,7 @@
 .researchBodyText {
   color: #fff5d0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 13.5px; 
+  font-size: 15px; 
   font-weight: 500;
   line-height: 1.6;
   text-align: justify;
@@ -634,7 +636,7 @@
 .captionTextLeft {
   color: #fff5d0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 13.5px;
+  font-size: 15px;
   font-weight: 700;
   text-align: left;
   line-height: 1.4;
@@ -716,7 +718,7 @@
 .internText {
   color: #fff5d0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 13.5px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 1.6;
   text-align: left;

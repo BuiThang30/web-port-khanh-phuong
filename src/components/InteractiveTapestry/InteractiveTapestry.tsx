@@ -119,7 +119,7 @@ export default function InteractiveTapestry() {
 
         {/* Nút View my resume */}
         <a 
-          href="https://drive.google.com/file/d/1U9-MTN5TYek7Xk5UJ1ow0elRh8C2nm_Z/view?usp=sharing" 
+          href="https://drive.google.com/file/d/1G1tHg20SiR_8sinPqGKiTZx70GAj7Vuh/view" 
           target="_blank" 
           rel="noopener noreferrer"
           className={styles.resumeButton}

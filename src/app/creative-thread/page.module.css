@@ -73,7 +73,7 @@
 .bodyText {
   color: #fff5d0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 13.5px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 1.6;
   text-align: justify;
@@ -86,7 +86,7 @@
 .bodyTextCentered {
   color: #fff5d0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 13.5px;
+  font-size: 15px;
   font-weight: 500;
   line-height: 1.6;
   text-align: justify;
@@ -301,7 +301,7 @@
   gap: 10px;
   color: #fff5d0;
   font-family: var(--font, "Akzidenz-Grotesk BQ Extended", sans-serif);
-  font-size: 13.5px;
+  font-size: 15px;
   font-weight: 600;
   margin-top: 24px;
   transition: color 0.2s ease;

@@ -187,7 +187,7 @@ export default function NeedleOfCare() {
           </div>
           <div className={styles.row}>
             <div className={styles.textCol}>
-              <div className={styles.text}>
+              <div className={styles.text} style={{ fontSize: "var(--fs-about)" }}>
                 <p>To me, the needle is where healing and creativity meet. In healthcare, to stitch is to heal. In embroidery, stitching is self-expression.</p>
                 <p>Whether using a single thread for delicate fabrics or a multi-thread setup for heavy seams, the needle transforms raw materials. My favorite technique, the ladder stitch, creates invisible seams that erase tears completely. Is this not a biomimicry of the human body? Is that not how my flesh from the road accident healed: platelets holding the wound like pins, fibrin crossing itself into stitches?</p>
               </div>
@@ -548,13 +548,15 @@ export default function NeedleOfCare() {
         <h2 className={styles.sectionTitle}>Community</h2>
       </section>
 
-      <section className={styles.communitySection}>
+      {/* ================= MIGRANT HEALTH MATTERS PROJECT ================= */}
+      <section id="migrant-health-matters" className={styles.sectionBarSub}>
+        <h2 className={styles.sectionTitle} style={{ color: "#111" }}>Migrant Health Matters Project</h2>
+      </section>
+
+      <section className={styles.communitySection} style={{ paddingTop: 40 }}>
         <div className={styles.communityContent}>
           
           <div className={styles.centerBlock} style={{ marginBottom: 30 }}>
-            <div className={styles.communityTag}>
-              Migrant Health Matters Project
-            </div>
             <a 
               href="https://www.instagram.com/projectmhm" 
               target="_blank" 
@@ -850,10 +852,6 @@ export default function NeedleOfCare() {
       <section id="internship" className={styles.sectionBar}>
         <h2 className={styles.sectionTitle}>
           <span>Internship</span>
-          <span className={styles.barDot}>·</span>
-          <Link href="https://www.genscript.com/singapore-manufacturing-facility.html" className={styles.barLink} target="_blank" rel="noopener noreferrer">
-            GenScript Biotechnology Cooperation
-          </Link>
         </h2>
       </section>
 
